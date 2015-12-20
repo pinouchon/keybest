@@ -1,0 +1,2 @@
+module PrivatexmlHelper
+end

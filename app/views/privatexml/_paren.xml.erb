@@ -1,0 +1,18 @@
+<%
+   # bracket
+   # __{ KeyCode::MINUS, KeyCode::EQUAL, KeyCode::CURSOR_LEFT }__
+   # pipe
+   # __{ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::CURSOR_LEFT }__
+%>
+<item>
+  <name>paren</name>
+  <identifier>private.paren</identifier>
+  <autogen>
+    __KeyToKey__ KeyCode::BACKQUOTE, ModifierFlag::NONE
+    __{ KeyCode::KEY_5, KeyCode::MINUS, KeyCode::CURSOR_LEFT }__
+  </autogen>
+  <autogen>
+    __KeyToKey__ KeyCode::Z, ModifierFlag::NONE
+    __{ KeyCode::KEY_5, ModifierFlag::OPTION_L, KeyCode::MINUS, ModifierFlag::OPTION_L, KeyCode::CURSOR_LEFT }__
+  </autogen>
+</item>

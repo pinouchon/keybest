@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>f6_to_escape</name>
+    <identifier>private.f6_to_escape</identifier>
+    <autogen>__KeyToKey__ KeyCode::F6, KeyCode::ESCAPE</autogen>
+  </item>
+  <item>
+    <name>right_to_escape</name>
+    <identifier>private.a_to_b</identifier>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, KeyCode::ESCAPE</autogen>
+  </item>
+  <item>
+    <name>shift_c_to_space</name>
+    <identifier>private.shift_c_to_space</identifier>
+    <appendix>Shift+C to Space (Key+Modifier To Key)</appendix>
+    <autogen>__KeyToKey__ KeyCode::C, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::SPACE</autogen>
+  </item>
+  <item>
+    <name>fn_e_to_right</name>
+    <identifier>private.fn_e_to_right</identifier>
+    <appendix>fn_e_to_right</appendix>
+    <autogen>__KeyToKey__ KeyCode::E, ModifierFlag::FN, KeyCode::CURSOR_RIGHT</autogen>
+  </item>
+  <item>
+    <name>test_a_to_b</name>
+    <identifier>private.test_a_to_b</identifier>
+    <appendix>test a to b</appendix>
+    <autogen>__KeyToKey__ KeyCode::N, KeyCode::CAPSLOCK</autogen>
+  </item>
+
+  <item>
+    <name>n0</name>
+    <identifier>private.n0</identifier>
+    <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::FN, KeyCode::KEY_0</autogen>
+  </item>
+  <item>
+    <name>n1</name>
+    <identifier>private.n1</identifier>
+    <autogen>__KeyToKey__ KeyCode::X, ModifierFlag::FN, KeyCode::KEY_1</autogen>
+  </item>
+  <item>
+    <name>n2</name>
+    <identifier>private.n2</identifier>
+    <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::FN, KeyCode::KEY_2</autogen>
+  </item>
+  <item>
+    <name>n3</name>
+    <identifier>private.n3</identifier>
+    <autogen>__KeyToKey__ KeyCode::V, ModifierFlag::FN, KeyCode::KEY_3</autogen>
+  </item>
+  <item>
+    <name>n4</name>
+    <identifier>private.n4</identifier>
+    <autogen>__KeyToKey__ KeyCode::B, ModifierFlag::FN, KeyCode::KEY_4</autogen>
+  </item>
+  <item>
+    <name>n5</name>
+    <identifier>private.n5</identifier>
+    <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::FN, KeyCode::KEY_5</autogen>
+  </item>
+  <item>
+    <name>n6</name>
+    <identifier>private.n6</identifier>
+    <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::FN, KeyCode::KEY_6</autogen>
+  </item>
+  <item>
+    <name>n7</name>
+    <identifier>private.n7</identifier>
+    <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::FN, KeyCode::KEY_7</autogen>
+  </item>
+  <item>
+    <name>n8</name>
+    <identifier>private.n8</identifier>
+    <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::FN, KeyCode::KEY_8</autogen>
+  </item>
+  <item>
+    <name>n9</name>
+    <identifier>private.n9</identifier>
+    <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::FN, KeyCode::KEY_9</autogen>
+  </item>
+
+  <item>
+    <name>left1</name>
+    <identifier>private.left1</identifier>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::FN, KeyCode::CURSOR_LEFT</autogen>
+  </item>
+  <item>
+    <name>bottom1</name>
+    <identifier>private.bottom1</identifier>
+    <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::FN, KeyCode::CURSOR_DOWN</autogen>
+  </item>
+  <item>
+    <name>right1</name>
+    <identifier>private.right1</identifier>
+    <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::FN, KeyCode::CURSOR_RIGHT</autogen>
+  </item>
+  <item>
+    <name>top1</name>
+    <identifier>private.top1</identifier>
+    <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::FN, KeyCode::CURSOR_UP</autogen>
+  </item>
+  <item>
+    <name>left3</name>
+    <identifier>private.left3</identifier>
+    <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::FN, KeyCode::CURSOR_LEFT</autogen>
+  </item>
+  <item>
+    <name>bottom3</name>
+    <identifier>private.bottom3</identifier>
+    <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::FN, KeyCode::CURSOR_DOWN</autogen>
+  </item>
+  <item>
+    <name>right3</name>
+    <identifier>private.right3</identifier>
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::FN, KeyCode::CURSOR_RIGHT</autogen>
+  </item>
+  <item>
+    <name>top3</name>
+    <identifier>private.top3</identifier>
+    <autogen>__KeyToKey__ KeyCode::KEY_8, ModifierFlag::FN, KeyCode::CURSOR_UP</autogen>
+  </item>
+
+  <item>
+    <name>dannish</name>
+    <identifier>private.dannish</identifier>
+    <autogen>__KeyToKey__ KeyCode::DANISH_DOLLAR, KeyCode::TAB</autogen>
+  </item>
+
+  <item>
+    <name>bs</name>
+    <identifier>private.bs</identifier>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, ModifierFlag::FN, KeyCode::DELETE</autogen>
+  </item>
+  <item>
+    <name>bs2</name>
+    <identifier>private.bs2</identifier>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, KeyCode::DELETE</autogen>
+  </item>
+  <item>
+    <name>bsshift</name>
+    <identifier>private.bsshift</identifier>
+    <autogen>__KeyToKey__ KeyCode::QUOTE, KeyCode::SHIFT_L</autogen>
+  </item>
+
+  <item>
+    <name>bs3</name>
+    <identifier>private.bs3</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::QUOTE,
+      KeyCode::DELETE,
+      <!-- 1 millisecond -->
+      DelayUntilRepeat::RawValue::50,
+      <!-- 1 millisecond -->
+      KeyRepeat::RawValue::50,
+    </autogen>
+  </item>
+
+  <item>
+    <name>paren1</name>
+    <identifier>private.paren1</identifier>
+    <autogen>
+      __KeyToKey__ KeyCode::Q, ModifierFlag::FN,
+      __{ KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::CURSOR_LEFT }__
+    </autogen>
+  </item>
+  <item>
+    <name>bracket1</name>
+    <identifier>private.bracket1</identifier>
+    <autogen>
+      __KeyToKey__ KeyCode::W, ModifierFlag::FN,
+      __{ KeyCode::MINUS, KeyCode::EQUAL, KeyCode::CURSOR_LEFT }__
+    </autogen>
+  </item>
+  <item>
+    <name>curly1</name>
+    <identifier>private.curly1</identifier>
+    <autogen>
+      __KeyToKey__ KeyCode::E, ModifierFlag::FN,
+      __{ KeyCode::MINUS, ModifierFlag::SHIFT_L, KeyCode::EQUAL, ModifierFlag::SHIFT_L, KeyCode::CURSOR_LEFT }__
+    </autogen>
+  </item>
+  <item>
+    <name>pipe1</name>
+    <identifier>private.pipe1</identifier>
+    <autogen>
+      __KeyToKey__ KeyCode::R, ModifierFlag::FN,
+      __{ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::CURSOR_LEFT }__
+    </autogen>
+  </item>
+
+  <item>
+    <name>testopt</name>
+    <identifier>private.testopt</identifier>
+    <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::OPTION_R, KeyCode::KEY_5</autogen>
+  </item>
+
+  <item>
+    <name>spamw</name>
+    <identifier>private.spamw</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::X,
+      KeyCode::Z,
+      <!-- 1 millisecond -->
+      DelayUntilRepeat::RawValue::30,
+      <!-- 1 millisecond -->
+      KeyRepeat::RawValue::30,
+    </autogen>
+  </item>
+
+
+
+  <item>
+    <name>siml2</name>
+    <identifier>private.siml2</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::A, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>siml3</name>
+    <identifier>private.siml3</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::S, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>siml5</name>
+    <identifier>private.siml4</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::D, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>siml8</name>
+    <identifier>private.siml8</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::F, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>siml10</name>
+    <identifier>private.siml10</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::Q, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>siml20</name>
+    <identifier>private.siml20</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::W, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>siml30</name>
+    <identifier>private.siml30</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::E, ModifierFlag::FN, KeyCode::J, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT, KeyCode::CURSOR_LEFT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr2</name>
+    <identifier>private.simr2</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::A, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr3</name>
+    <identifier>private.simr3</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::S, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr5</name>
+    <identifier>private.simr4</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::D, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr8</name>
+    <identifier>private.simr8</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::F, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr10</name>
+    <identifier>private.simr10</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::Q, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr20</name>
+    <identifier>private.simr20</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::W, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+  <item>
+    <name>simr30</name>
+    <identifier>private.simr30</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      @begin
+      KeyCode::E, ModifierFlag::FN, KeyCode::L, ModifierFlag::FN
+      @end
+      @begin
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT, KeyCode::CURSOR_RIGHT}__
+      @end
+    </autogen>
+  </item>
+
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_SHELL_date_pbcopy</name>
+    <url type="shell">
+      <![CDATA[    /bin/date | /usr/bin/pbcopy    ]]>
+    </url>
+  </vkopenurldef>
+
+  <item>
+    <name>Change right-command + d to execute /bin/date | /usr/bin/pbcopy</name>
+    <identifier>private.right_command_d</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::D, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_SHELL_date_pbcopy,
+    </autogen>
+  </item>
+
+</root>

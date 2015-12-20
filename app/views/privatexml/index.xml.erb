@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<root>
+  <modifierdef>ALPHA</modifierdef>
+  <modifierdef>BETA</modifierdef>
+  <modifierdef>GAMMA</modifierdef>
+  <modifierdef>DELTA</modifierdef>
+  <modifierdef>EPSILON</modifierdef>
+
+  <!-- shell commands -->
+  <!--<vkopenurldef>-->
+    <!--<name>KeyCode::VK_OPEN_URL_SHELL_date_pbcopy</name>-->
+    <!--<url type="shell">-->
+      <!--<![CDATA[    /bin/date | /usr/bin/pbcopy    ]]>-->
+    <!--</url>-->
+  <!--</vkopenurldef>-->
+
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_SHELL_nc_left</name>
+    <url type="shell">
+      <![CDATA[    echo 'left' | nc 127.0.0.1 3333    ]]>
+    </url>
+  </vkopenurldef>
+
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_SHELL_nc_right</name>
+    <url type="shell">
+      <![CDATA[    echo 'right' | nc 127.0.0.1 3333    ]]>
+    </url>
+  </vkopenurldef>
+
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_SHELL_nc_zero</name>
+    <url type="shell">
+      <![CDATA[    echo 'zero' | nc 127.0.0.1 3333    ]]>
+    </url>
+  </vkopenurldef>
+
+  <item>
+    <name>Modifier keys</name>
+    <identifier>private.modifier_keys</identifier>
+
+    <!--MODIFIER KEYS DEFINITION-->
+    <autogen>__KeyToKey__ KeyCode::QUOTE, KeyCode::SHIFT_R</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::TAB, KeyCode::VK_MODIFIER_BETA</autogen>
+    <autogen>__KeyToKey__ KeyCode::KEYPAD_CLEAR, KeyCode::VK_MODIFIER_ALPHA</autogen>
+
+    <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::VK_MODIFIER_GAMMA</autogen>
+    <!--<autogen>__KeyToKey__ KeyCode::SHIFT_R, KeyCode::VK_MODIFIER_DELTA</autogen>-->
+
+    <!--MODIFIER KEYS BINDINGS-->
+
+
+    <!--<autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::ALPHA, KeyCode::CURSOR_DOWN</autogen>-->
+
+    <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::ALPHA, KeyCode::CURSOR_UP</autogen>
+    <!--<autogen>__KeyToKey__ KeyCode::J, ModifierFlag::ALPHA, KeyCode::CURSOR_LEFT</autogen>-->
+    <!--<autogen>__KeyToKey__ KeyCode::K, ModifierFlag::ALPHA, KeyCode::VK_OPEN_URL_SHELL_nc_zero</autogen>-->
+    <!--<autogen>__KeyToKey__ KeyCode::L, ModifierFlag::ALPHA, KeyCode::CURSOR_RIGHT</autogen>-->
+
+
+
+    <autogen>
+      __KeyToKey__ KeyCode::J, ModifierFlag::ALPHA
+      __{ KeyCode::CURSOR_LEFT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__
+    </autogen>
+    <autogen>
+      __KeyToKey__ KeyCode::K, ModifierFlag::ALPHA
+      __{ KeyCode::CURSOR_DOWN, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__
+    </autogen>
+    <autogen>
+      __KeyToKey__ KeyCode::L, ModifierFlag::ALPHA
+      __{ KeyCode::CURSOR_RIGHT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__
+    </autogen>
+
+
+
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::H, ModifierFlag::ALPHA,
+      KeyCode::VK_OPEN_URL_SHELL_nc_left,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::SEMICOLON, ModifierFlag::ALPHA,
+      KeyCode::VK_OPEN_URL_SHELL_nc_right,
+    </autogen>
+
+    <%# SPECIALS %>
+    <autogen>__KeyToKey__ KeyCode::DANISH_DOLLAR, KeyCode::TAB</autogen>
+
+    <%# NUMBERS %>
+
+    <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::BETA, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::BETA, KeyCode::KEY_1, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::BETA, KeyCode::KEY_2, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::BETA, KeyCode::KEY_3, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::BETA, KeyCode::KEY_4, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::G, ModifierFlag::BETA, KeyCode::KEY_5, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::BETA, KeyCode::KEY_6, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::BETA, KeyCode::KEY_7, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::BETA, KeyCode::KEY_8, ModifierFlag::SHIFT_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::BETA, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
+
+  </item>
+
+  <%= render 'switch_profile' %>
+  <%= render 'dvorak_mapping' %>
+  <%= render 'paren' %>
+  <%= render 'home_end' %>
+  <%#= render 'numbers' %>
+</root>

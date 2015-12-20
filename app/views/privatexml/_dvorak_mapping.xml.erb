@@ -1,0 +1,27 @@
+<item>
+  <name>dvorak_remapping</name>
+  <identifier>private.dvorak_remapping</identifier>
+<% @dvorak_mapping.each do |key_from, key_to| %>
+  <% if key_to.is_a?(Array) %>
+  <autogen>
+    __KeyToKey__
+    KeyCode::<%= key_from %>, ModifierFlag::NONE,
+    KeyCode::<%= key_to[0] %>, ModifierFlag::<%= key_to[1] %>
+  </autogen>
+  <autogen>
+    __KeyToKey__
+    KeyCode::<%= key_from %>, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+    KeyCode::<%= key_to[0] %>, ModifierFlag::<%= key_to[1] %>, ModifierFlag::SHIFT_L
+  </autogen>
+  <% else %>
+  <autogen>
+    __KeyToKey__ KeyCode::<%= key_from %>, ModifierFlag::NONE,
+    KeyCode::<%= key_to %>
+  </autogen>
+  <autogen>
+    __KeyToKey__ KeyCode::<%= key_from %>, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+    KeyCode::<%= key_to %>, ModifierFlag::SHIFT_L
+  </autogen>
+  <% end %>
+<% end %>
+</item>
