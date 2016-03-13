@@ -104,6 +104,29 @@
     <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::BETA, KeyCode::KEY_8, ModifierFlag::SHIFT_L</autogen>
     <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::BETA, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
 
+    <%# Backspace %>
+    <autogen>
+      __KeyToKey__ KeyCode::F, ModifierFlag::ALPHA,
+      KeyCode::DELETE
+    </autogen>
+        <!--<autogen>-->
+      <!--__KeyToKey__ KeyCode::SPACE, ModifierFlag::ALPHA-->
+      <!--&lt;!&ndash;KeyCod  e::DELETE&ndash;&gt;-->
+      <!--__{ KeyCode::CURSOR_LEFT }__-->
+    <!--</autogen>-->
+    <!--<autogen>-->
+      <!--__KeyToKey__ KeyCode::SPACE, ModifierFlag::ALPHA | ModifierFlag::FN,-->
+      <!--__{ KeyCode::CURSOR_RIGHT }__-->
+    <!--</autogen>-->
+    <!--<autogen>-->
+      <!--__KeyToKey__ KeyCode::SPACE, ModifierFlag::SHIFT_L-->
+      <!--__{ KeyCode::CURSOR_DOWN }__-->
+    <!--</autogen>-->
+    <!--<autogen>-->
+      <!--__SimultaneousKeyPresses__ KeyCode::CURSOR_UP, KeyCode::CURSOR_LEFT-->
+      <!--__{ KeyCode::CURSOR_RIGHT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__-->
+    <!--</autogen>-->
+
   </item>
 
   <%= render 'switch_profile' %>

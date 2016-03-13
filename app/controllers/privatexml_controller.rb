@@ -3,7 +3,7 @@ class PrivatexmlController < ApplicationController
 
 
   def index
-    @dvorak_mapping = dvorak_mapping
+    @dvorak_mapping = qgmly_mapping
     @event_mapping = event_mapping
 
     respond_to do |format|
@@ -16,6 +16,14 @@ class PrivatexmlController < ApplicationController
      A: 'Q', S: 'O', D: 'E', F: 'U', G: 'I', H: 'D', J: 'H', K: 'T', L: 'N', SEMICOLON: 'S',
      X: 'A', C: 'J', V: 'K', B: 'X', N: 'B', M: 'SEMICOLON', COMMA: 'Z', DOT: 'V', SLASH: 'W'
     # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
+    }.with_indifferent_access
+  end
+
+  def qgmly_mapping
+    {Q: 'A', W: 'G', E: 'SEMICOLON', R: 'L', T: 'Z', Y: 'Y', U: 'F', I: 'U', O: 'B', P: 'A',
+     A: 'D', S: 'S', D: 'T', F: 'N', G: 'R', H: 'I', J: 'Q', K: 'E', L: 'O', SEMICOLON: 'H',
+     Z: 'W', X: 'X', C: 'C', V: 'V', B: 'J', N: 'K', M: 'P', COMMA: 'M', DOT: ['COMMA', 'SHIFT_L'], SLASH: ['COMMA', 'SHIFT_L']
+     # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
 
