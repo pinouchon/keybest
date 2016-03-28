@@ -1,6 +1,12 @@
 <item>
   <name>home_end</name>
   <identifier>private.home_end</identifier>
-  <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>
-  <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+  <%
+  #<autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L</autogen>
+  #<autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L</autogen>
+  %>
+
+  <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::DELETE</autogen>
+  <!--<autogen>__KeyToKey__ KeyCode::BRACKET_LEFT, KeyCode::FORWARD_DELETE</autogen>-->
+  <autogen>__KeyToKey__ KeyCode::BRACKET_RIGHT, KeyCode::DELETE, ModifierFlag::OPTION_L</autogen>
 </item>

@@ -20,9 +20,9 @@ class PrivatexmlController < ApplicationController
   end
 
   def qgmly_mapping
-    {Q: 'A', W: 'G', E: 'SEMICOLON', R: 'L', T: 'Z', Y: 'Y', U: 'F', I: 'U', O: 'B', P: 'A',
-     A: 'D', S: 'S', D: 'T', F: 'N', G: 'R', H: 'I', J: 'Q', K: 'E', L: 'O', SEMICOLON: 'H',
-     Z: 'W', X: 'X', C: 'C', V: 'V', B: 'J', N: 'K', M: 'P', COMMA: 'M', DOT: ['COMMA', 'SHIFT_L'], SLASH: ['COMMA', 'SHIFT_L']
+    {Q: 'A', W: 'G', E: 'SEMICOLON', R: 'L', T: 'Z', Y: 'Y', U: 'F', I: 'U', O: 'B', P: 'FORWARD_DELETE',
+     A: 'D', S: 'S', D: 'T', F: 'N', G: 'R', H: 'I', J: 'Q', K: 'E', L: 'O', QUOTE: 'H',
+     Z: 'W', X: 'X', C: 'C', V: 'V', B: 'J', N: 'K', M: 'P', COMMA: ['COMMA', 'SHIFT_L'], DOT: 'M', SLASH: 'F'
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
