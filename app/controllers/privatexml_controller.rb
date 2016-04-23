@@ -107,8 +107,8 @@ class PrivatexmlController < ApplicationController
      # 2nd line
      A: "__{ KeyCode::DOT, #{shift} }__",
      S: '__{ KeyCode::SLASH }__',
-     D: "__{ KeyCode::EQUAL, #{shift} }__",
-     F: '__{ KeyCode::EQUAL }__',
+     D: '__{ KeyCode::EQUAL }__',
+     F: "__{ KeyCode::EQUAL, #{shift} }__",
      G: "__{ KeyCode::KEY_1, #{shift} }__",
      H: "__{ KeyCode::KEY_0, #{shift} }__",
      J: '__{ KeyCode::COMMA }__',
