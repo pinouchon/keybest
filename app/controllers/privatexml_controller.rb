@@ -73,51 +73,41 @@ class PrivatexmlController < ApplicationController
     }.with_indifferent_access
   end
 
-  # def old_beta_mapping
-  #   {# 1st line
-  #    Q: nil, W: nil, E: nil, R: nil, T: nil, Y: nil, U: nil, I: nil, O: nil, P: nil,
-  #
-  #    # 2nd line
-  #    A: '__{ KeyCode::BACKQUOTE }__', # <
-  #    S: "__{ KeyCode::KEY_5, #{shift_opt} }__", # [
-  #    D: '__{ KeyCode::KEY_5 }__', # (
-  #    F: "__{ KeyCode::KEY_5, #{opt} }__", # {
-  #    G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
-  #    H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
-  #    J: nil, K: nil, L: nil, QUOTE: nil,
-  #
-  #    # 3rd line
-  #    Z: "__{ KeyCode::BACKQUOTE, #{shift} }__", # >
-  #    X: "__{ KeyCode::MINUS, #{shift_opt} }__", # ]
-  #    C: '__{ KeyCode::MINUS }__', # )
-  #    V: "__{ KeyCode::MINUS, #{opt} }__", # }
-  #    B: nil, N: nil, M: nil, COMMA: nil, DOT: nil
-  #    # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
-  #   }.with_indifferent_access
-  # end
-
   def beta_mapping
     {# 1st line
-     Q: nil, W: nil, E: nil, R: nil, T: nil, Y: nil, U: nil, I: nil, O: nil, P: nil,
+     Q: nil,
+     W: "__{ KeyCode::MINUS, #{shift} }__", # °
+     E: "__{ KeyCode::BRACKET_LEFT, #{shift} }__", # ¨
+     R: '__{ KeyCode::BRACKET_LEFT }__', # ^
+     T: '__{ KeyCode::KEY_6 }__', # §
+     Y: nil,
+     U: nil,
+     I: '__{ KeyCode::QUOTE }__', # ù
+     O: nil,
+     P: nil,
 
      # 2nd line
-     A: "__{ KeyCode::KEY_9, #{shift} }__", # 9
-     S: "__{ KeyCode::KEY_7, #{shift} }__", # 7
-     D: "__{ KeyCode::KEY_5, #{shift} }__", # 5
-     F: "__{ KeyCode::KEY_3, #{shift} }__", # 3
+     A: nil,
+     S: nil,
+     D: nil,
+     F: nil,
      G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
      H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
-     J: "__{ KeyCode::KEY_2, #{shift} }__", # 2
-     K: "__{ KeyCode::KEY_4, #{shift} }__", # 4
-     L: "__{ KeyCode::KEY_6, #{shift} }__", # 6
-     QUOTE: "__{ KeyCode::KEY_8, #{shift} }__", # 8
+     J: nil,
+     K: '__{ KeyCode::KEY_2 }__', # é
+     L: '__{ KeyCode::BRACKET_LEFT, KeyCode::O }__', # ô
+     QUOTE: nil,
 
      # 3rd line
-     Z: nil,
-     X: nil,
-     C: nil,
+     Z: "__{ KeyCode::BACKSLASH, #{shift} }__", # £
+     X: "__{ KeyCode::BRACKET_RIGHT, #{opt} }__", # €
+     C: '__{ KeyCode::KEY_9 }__', # ç
      V: nil,
-     B: nil, N: nil, M: nil, COMMA: nil, DOT: nil
+     B: nil,
+     N: nil,
+     M: '__{ KeyCode::KEY_0 }__', # à
+     COMMA: '__{ KeyCode::KEY_7 }__', # è
+     DOT: nil
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
@@ -138,12 +128,12 @@ class PrivatexmlController < ApplicationController
      # 2nd line
      A: "__{ KeyCode::DOT, #{shift} }__", # /
      S: '__{ KeyCode::SLASH }__', # =
-     D: '__{ KeyCode::EQUAL }__', # _
-     F: "__{ KeyCode::EQUAL, #{shift} }__", # -
+     D: '__{ KeyCode::DOT }__', # :
+     F: '__{ KeyCode::COMMA }__', # ;
      G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
      H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
-     J: '__{ KeyCode::COMMA }__', # ;
-     K: '__{ KeyCode::DOT }__', # :
+     J: "__{ KeyCode::EQUAL, #{shift} }__", # _
+     K: '__{ KeyCode::EQUAL }__', # -
      L: '__{ KeyCode::KEY_8 }__', # !
      QUOTE: nil,
 
@@ -156,46 +146,46 @@ class PrivatexmlController < ApplicationController
      N: "__{ KeyCode::SLASH, #{shift} }__", # +
      M: "__{ KeyCode::BRACKET_RIGHT, #{shift} }__", # *
      COMMA: "__{ KeyCode::DANISH_DOLLAR, #{shift} }__", # #
-     DOT: "__{ KeyCode::N, #{opt} }__" # ~
+     DOT: "__{ KeyCode::N, #{opt} }__", # ~
+
+     # top line
+     KEY_3: "__{ KeyCode::DOT, #{shift_opt} }__", # \
+     KEY_4: '__{ KeyCode::DANISH_DOLLAR }__', # @
+     KEY_5: nil,
+     KEY_7: nil,
+     KEY_8: "__{ KeyCode::QUOTE, #{shift} }__", # %
+     KEY_9: nil,
+
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
 
   def delta_mapping
     {# 1st line
-     Q: nil,
-     W: "__{ KeyCode::MINUS, #{shift} }__", # °
-     E: "__{ KeyCode::BRACKET_LEFT, #{shift} }__", # ¨
-     R: '__{ KeyCode::BRACKET_LEFT }__', # ^
-     T: '__{ KeyCode::KEY_6 }__', # §
-     Y: nil,
-     U: nil,
-     I: '__{ KeyCode::QUOTE }__', # ù
-     O: nil,
-     P: nil,
+     Q: nil, W: nil, E: nil, R: nil, T: nil, Y: nil, U: nil, I: nil, O: nil, P: nil,
 
      # 2nd line
-     A: "__{ KeyCode::DOT, #{shift_opt} }__", # \
-     S: nil,
-     D: nil,
-     F: "__{ KeyCode::QUOTE, #{shift} }__", # %
+     A: "__{ KeyCode::KEY_9, #{shift} }__", # 9
+     S: "__{ KeyCode::KEY_7, #{shift} }__", # 7
+     D: "__{ KeyCode::KEY_5, #{shift} }__", # 5
+     F: "__{ KeyCode::KEY_3, #{shift} }__", # 3
      G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
      H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
-     J: '__{ KeyCode::DANISH_DOLLAR }__', # @
-     K: '__{ KeyCode::KEY_2 }__', # é
-     L: '__{ KeyCode::BRACKET_LEFT, KeyCode::O }__', # ô
+     J: "__{ KeyCode::KEY_2, #{shift} }__", # 2
+     K: "__{ KeyCode::KEY_4, #{shift} }__", # 4
+     L: "__{ KeyCode::KEY_6, #{shift} }__", # 6
      QUOTE: nil,
 
      # 3rd line
-     Z: "__{ KeyCode::BACKSLASH, #{shift} }__", # £
-     X: "__{ KeyCode::BRACKET_RIGHT, #{opt} }__", # €
-     C: '__{ KeyCode::KEY_9 }__', # ç
-     V: nil,
-     B: nil,
-     N: nil,
-     M: '__{ KeyCode::KEY_0 }__', # à
-     COMMA: '__{ KeyCode::KEY_7 }__', # è
-     DOT: nil
+     Z: nil,
+     X: nil,
+     C: nil,
+     V: "__{ KeyCode::KEY_8, #{shift} }__",
+     B: "__{ KeyCode::KEY_8, #{shift} }__",
+     N: "__{ KeyCode::KEY_8, #{shift} }__",
+     M: "__{ KeyCode::KEY_8, #{shift} }__", # 8
+     COMMA: "__{ KeyCode::KEY_8, #{shift} }__",
+     DOT: "__{ KeyCode::KEY_8, #{shift} }__"
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
