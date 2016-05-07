@@ -47,24 +47,24 @@ class PrivatexmlController < ApplicationController
      W: "__{ KeyCode::KEY_5, #{shift_opt}, KeyCode::MINUS, #{shift_opt}, #{left} }__", # []
      E: "__{ KeyCode::KEY_5, KeyCode::MINUS, #{left} }__", # ()
      R: "__{ KeyCode::KEY_5, #{opt}, KeyCode::MINUS, #{opt}, #{left} }__", # {}
-     T: "__{ KeyCode::COMMA, #{shift} }__",
-     Y: nil, # todo: <- NC #'__{ KeyCode::M }__',
+     T: "__{ KeyCode::KEY_1, #{shift} }__", # 1
+     Y: "__{ KeyCode::KEY_0, #{shift} }__", # 0
      U: "__{ KeyCode::CURSOR_LEFT, #{cmd} }__", # left
      I: '__{ KeyCode::CURSOR_UP }__', # up
      O: "__{ KeyCode::CURSOR_RIGHT, #{cmd} }__", # right
-     P: nil, # todo: -> NC
+     P: nil,
 
      # 2nd line
      A: nil,
      S: "__{ KeyCode::DELETE, #{opt} }__", # <- word
      D: '__{ KeyCode::FORWARD_DELETE }__', # <- right
      F: '__{ KeyCode::DELETE }__', # <-
-     G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
-     H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
+     G: nil, # -----
+     H: nil, # ----- # todo: <- NC #'__{ KeyCode::M }__',
      J: '__{ KeyCode::CURSOR_LEFT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__', # LEFT
      K: '__{ KeyCode::CURSOR_DOWN, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__', # DOWN
      L: '__{ KeyCode::CURSOR_RIGHT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__', # RIGHT
-     QUOTE: nil,
+     QUOTE: nil, # todo: -> NC
 
      # 3rd line
      Z: nil,
@@ -123,8 +123,8 @@ class PrivatexmlController < ApplicationController
      W: "__{ KeyCode::KEY_5, #{shift_opt} }__", # [
      E: '__{ KeyCode::KEY_5 }__', # (
      R: "__{ KeyCode::KEY_5, #{opt} }__", # {
-     T: "__{ KeyCode::COMMA, #{shift} }__", # .
-     Y: '__{ KeyCode::M }__', # " ,
+     T: "__{ KeyCode::KEY_1, #{shift} }__", # 1
+     Y: "__{ KeyCode::KEY_0, #{shift} }__", # 0
      U: "__{ KeyCode::MINUS, #{opt} }__", # }
      I: '__{ KeyCode::MINUS }__', # )
      O: "__{ KeyCode::MINUS, #{shift_opt} }__", # ]
@@ -135,8 +135,8 @@ class PrivatexmlController < ApplicationController
      S: '__{ KeyCode::SLASH }__', # =
      D: '__{ KeyCode::DOT }__', # :
      F: '__{ KeyCode::COMMA }__', # ;
-     G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
-     H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
+     G: "__{ KeyCode::COMMA, #{shift} }__", # . -----
+     H: '__{ KeyCode::M }__', # ,               -----
      J: "__{ KeyCode::EQUAL, #{shift} }__", # _
      K: '__{ KeyCode::EQUAL }__', # -
      L: '__{ KeyCode::KEY_8 }__', # !
@@ -183,8 +183,8 @@ class PrivatexmlController < ApplicationController
      S: nil,
      D: nil,
      F: nil,
-     G: "__{ KeyCode::KEY_1, #{shift} }__", # 1 -----
-     H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
+     G: nil, # -----
+     H: nil, # -----
      J: nil,
      K: '__{ KeyCode::KEY_2 }__', # é
      L: '__{ KeyCode::BRACKET_LEFT, KeyCode::O }__', # ô
