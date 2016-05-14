@@ -19,7 +19,7 @@ class PrivatexmlController < ApplicationController
 
   # Deprecated
   def dvorak_mapping
-    {Q: 'KEY_4', W: 'M', E: ['COMMA', 'SHIFT_L'], R: 'P', T: 'Y', Y: 'F', U: 'G', I: 'C', O: 'R', P: 'L',
+    {Q: 'KEY_4', W: 'M', E: %w(COMMA SHIFT_L), R: 'P', T: 'Y', Y: 'F', U: 'G', I: 'C', O: 'R', P: 'L',
      A: 'Q', S: 'O', D: 'E', F: 'U', G: 'I', H: 'D', J: 'H', K: 'T', L: 'N', SEMICOLON: 'S',
      X: 'A', C: 'J', V: 'K', B: 'X', N: 'B', M: 'SEMICOLON', COMMA: 'Z', DOT: 'V', SLASH: 'W'
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
@@ -34,9 +34,19 @@ class PrivatexmlController < ApplicationController
      # KEY_3: "__{ KeyCode::DOT, #{shift_opt} }__", # \
      # KEY_4: '__{ KeyCode::DANISH_DOLLAR }__', # @
      # KEY_5: "__{ KeyCode::QUOTE, #{shift} }__", # %,
-     KEY_7: 'BACKSLASH', # `
-     KEY_8: 'KEY_4', # '
-     KEY_9: 'KEY_3', # ",
+     # KEY_7: 'BACKSLASH', # `
+     # KEY_8: 'KEY_4', # '
+     # KEY_9: 'KEY_3', # ",
+     KEY_0: %w(KEY_0 SHIFT_L),
+     KEY_1: %w(KEY_1 SHIFT_L),
+     KEY_2: %w(KEY_2 SHIFT_L),
+     KEY_3: %w(KEY_3 SHIFT_L),
+     KEY_4: %w(KEY_4 SHIFT_L),
+     KEY_5: %w(KEY_5 SHIFT_L),
+     KEY_6: %w(KEY_6 SHIFT_L),
+     KEY_7: %w(KEY_7 SHIFT_L),
+     KEY_8: %w(KEY_8 SHIFT_L),
+     KEY_9: %w(KEY_9 SHIFT_L)
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
