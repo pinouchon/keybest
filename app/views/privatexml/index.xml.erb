@@ -166,8 +166,41 @@
       </autogen>
     <% end %>
 
+    <!-- ===================================== MISC =================================== -->
+    <!-- pound to _ -->
+    <autogen>
+      __KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::NONE,
+      KeyCode::EQUAL, ModifierFlag::SHIFT_L
+    </autogen>
+    <autogen>
+      __KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::EQUAL, ModifierFlag::SHIFT_L
+    </autogen>
+    <!-- ) to . -->
+    <autogen>
+      __KeyToKey__ KeyCode::MINUS, ModifierFlag::NONE,
+      KeyCode::COMMA, ModifierFlag::SHIFT_L
+    </autogen>
+    <autogen>
+      __KeyToKey__ KeyCode::MINUS, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::COMMA, ModifierFlag::SHIFT_L
+    </autogen>
+    <!-- - to , -->
+    <autogen>
+      __KeyToKey__ KeyCode::EQUAL, ModifierFlag::NONE,
+      KeyCode::M
+    </autogen>
+    <autogen>
+      __KeyToKey__ KeyCode::EQUAL, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::M
+    </autogen>
+    <!-- command ) to command + -->
+    <autogen>
+      __KeyToKey__ KeyCode::MINUS, ModifierFlag::COMMAND_R,
+      KeyCode::SLASH, ModifierFlag::COMMAND_R, ModifierFlag::SHIFT_L
+    </autogen>
+    <!--command - to command - -->
   </item>
-
 
 
   <%= render 'switch_profile' %>

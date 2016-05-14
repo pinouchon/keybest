@@ -51,14 +51,15 @@ class PrivatexmlController < ApplicationController
     }.with_indifferent_access
   end
 
+  #
   def alpha_mapping
     {# 1st line
      Q: "__{ KeyCode::BACKQUOTE, KeyCode::BACKQUOTE, #{shift}, #{left} }__", # <>,
      W: "__{ KeyCode::KEY_5, #{shift_opt}, KeyCode::MINUS, #{shift_opt}, #{left} }__", # []
      E: "__{ KeyCode::KEY_5, KeyCode::MINUS, #{left} }__", # ()
      R: "__{ KeyCode::KEY_5, #{opt}, KeyCode::MINUS, #{opt}, #{left} }__", # {}
-     T: "__{ KeyCode::KEY_1, #{shift} }__", # 1
-     Y: "__{ KeyCode::KEY_0, #{shift} }__", # 0
+     T: "__{ KeyCode::KEY_3, KeyCode::KEY_3, #{left} }__", # ""
+     Y: "__{ KeyCode::KEY_1, #{shift} }__", # 1
      U: "__{ KeyCode::CURSOR_LEFT, #{cmd} }__", # left
      I: '__{ KeyCode::CURSOR_UP }__', # up
      O: "__{ KeyCode::CURSOR_RIGHT, #{cmd} }__", # right
@@ -69,8 +70,8 @@ class PrivatexmlController < ApplicationController
      S: "__{ KeyCode::DELETE, #{opt} }__", # <- word
      D: '__{ KeyCode::FORWARD_DELETE }__', # <- right
      F: '__{ KeyCode::DELETE }__', # <-
-     G: nil, # -----
-     H: nil, # ----- # todo: <- NC #'__{ KeyCode::M }__',
+     G: "__{ KeyCode::KEY_4, KeyCode::KEY_4, #{left} }__", # '', # -----
+     H: nil, # 0, # ----- # todo: <- NC #'__{ KeyCode::M }__',
      J: '__{ KeyCode::CURSOR_LEFT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__', # LEFT
      K: '__{ KeyCode::CURSOR_DOWN, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__', # DOWN
      L: '__{ KeyCode::CURSOR_RIGHT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__', # RIGHT
@@ -80,7 +81,7 @@ class PrivatexmlController < ApplicationController
      Z: nil,
      X: nil,
      C: '__{ KeyCode::RETURN }__', # enter
-     V: "__{ KeyCode::L, #{shift_opt}, KeyCode::L, #{shift_opt}, #{left} }__", # ||
+     V: "__{ KeyCode::L, #{shift_opt}, KeyCode::L, #{shift_opt} }__", # ||,
      B: '__{ KeyCode::KEY_1, KeyCode::KEY_1 }__', # &&
      N: nil,
      M: "__{ KeyCode::CURSOR_LEFT, #{opt} }__", # <- word
@@ -88,12 +89,12 @@ class PrivatexmlController < ApplicationController
      DOT: "__{ KeyCode::CURSOR_RIGHT, #{opt} }__", # -> word
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
 
-     # KEY_3: "__{ KeyCode::DOT, #{shift_opt} }__", # \
+     KEY_3: "__{ KeyCode::L, #{shift_opt}, KeyCode::L, #{shift_opt}, #{left} }__", # ||
      # KEY_4: '__{ KeyCode::DANISH_DOLLAR }__', # @
-     # KEY_5: "__{ KeyCode::QUOTE, #{shift} }__", # %,
-     KEY_7: "__{ KeyCode::BACKSLASH, KeyCode::BACKSLASH, #{left} }__", # ``
-     KEY_8: "__{ KeyCode::KEY_4, KeyCode::KEY_4, #{left} }__", # ''
-     KEY_9: "__{ KeyCode::KEY_3, KeyCode::KEY_3, #{left} }__", # ""
+     KEY_5: "__{ KeyCode::BACKSLASH, KeyCode::BACKSLASH, #{left} }__", # ``,
+     KEY_7: nil,
+     KEY_8: nil,
+     KEY_9: nil
     }.with_indifferent_access
   end
 
@@ -133,8 +134,8 @@ class PrivatexmlController < ApplicationController
      W: "__{ KeyCode::KEY_5, #{shift_opt} }__", # [
      E: '__{ KeyCode::KEY_5 }__', # (
      R: "__{ KeyCode::KEY_5, #{opt} }__", # {
-     T: "__{ KeyCode::KEY_1, #{shift} }__", # 1
-     Y: "__{ KeyCode::KEY_0, #{shift} }__", # 0
+     T: '__{ KeyCode::KEY_3 }__', # ",
+     Y: "__{ KeyCode::KEY_1, #{shift} }__", # 1
      U: "__{ KeyCode::MINUS, #{opt} }__", # }
      I: '__{ KeyCode::MINUS }__', # )
      O: "__{ KeyCode::MINUS, #{shift_opt} }__", # ]
@@ -145,8 +146,8 @@ class PrivatexmlController < ApplicationController
      S: '__{ KeyCode::SLASH }__', # =
      D: '__{ KeyCode::DOT }__', # :
      F: '__{ KeyCode::COMMA }__', # ;
-     G: "__{ KeyCode::COMMA, #{shift} }__", # . -----
-     H: '__{ KeyCode::M }__', # ,               -----
+     G: '__{ KeyCode::KEY_4 }__', # ' -----
+     H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
      J: "__{ KeyCode::EQUAL, #{shift} }__", # _
      K: '__{ KeyCode::EQUAL }__', # -
      L: '__{ KeyCode::KEY_8 }__', # !
@@ -160,16 +161,16 @@ class PrivatexmlController < ApplicationController
      B: '__{ KeyCode::KEY_1 }__', # &
      N: "__{ KeyCode::SLASH, #{shift} }__", # +
      M: "__{ KeyCode::BRACKET_RIGHT, #{shift} }__", # *
-     COMMA: '__{ KeyCode::BRACKET_RIGHT }__', # $
-     DOT: "__{ KeyCode::N, #{opt} }__", # ~
+     COMMA: "__{ KeyCode::COMMA, #{shift} }__", # .
+     DOT: '__{ KeyCode::M }__', # ,
 
      # top line
      KEY_3: "__{ KeyCode::DOT, #{shift_opt} }__", # \
      KEY_4: '__{ KeyCode::DANISH_DOLLAR }__', # @
-     KEY_5: "__{ KeyCode::QUOTE, #{shift} }__", # %,
-     KEY_7: '__{ KeyCode::BACKSLASH }__', # `
-     KEY_8: '__{ KeyCode::KEY_4 }__', # '
-     KEY_9: '__{ KeyCode::KEY_3 }__', # ",
+     KEY_5: '__{ KeyCode::BACKSLASH }__', # `
+     KEY_7: '__{ KeyCode::BRACKET_RIGHT }__', # $
+     KEY_8: "__{ KeyCode::N, #{opt} }__", # ~
+     KEY_9: "__{ KeyCode::QUOTE, #{shift} }__", # %,
 
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
