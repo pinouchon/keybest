@@ -36,6 +36,8 @@
     </url>
   </vkopenurldef>
 
+  <%= render partial: 'caesar_mapping' %>
+
   <item>
     <name>Modifier keys</name>
     <identifier>private.modifier_keys</identifier>
@@ -129,6 +131,11 @@
       <!--__SimultaneousKeyPresses__ KeyCode::CURSOR_UP, KeyCode::CURSOR_LEFT-->
       <!--__{ KeyCode::CURSOR_RIGHT, KeyCode::VK_OPEN_URL_SHELL_nc_zero }__-->
     <!--</autogen>-->
+  </item>
+
+  <item>
+    <name>Mappings</name>
+    <identifier>mappings</identifier>
 
     <!-- ===================================== ALPHA MAPPING ==================================== -->
     <% @alpha_mapping.each do |from, to| %>
@@ -147,6 +154,36 @@
         <%= to %>
       </autogen>
     <% end %>
+    <!--hammerspoon bridge -->
+    <autogen>
+        __KeyToKey__ KeyCode::S, ModifierFlag::BETA
+        __{ KeyCode::S, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+    <autogen>
+        __KeyToKey__ KeyCode::D, ModifierFlag::BETA
+        __{ KeyCode::D, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+    <autogen>
+        __KeyToKey__ KeyCode::F, ModifierFlag::BETA
+        __{ KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+    <autogen>
+        __KeyToKey__ KeyCode::Z, ModifierFlag::BETA
+        __{ KeyCode::Z, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+    <autogen>
+        __KeyToKey__ KeyCode::X, ModifierFlag::BETA
+        __{ KeyCode::X, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+    <autogen>
+        __KeyToKey__ KeyCode::C, ModifierFlag::BETA
+        __{ KeyCode::C, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+    <autogen>
+        __KeyToKey__ KeyCode::V, ModifierFlag::BETA
+        __{ KeyCode::V, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
+    </autogen>
+
 
     <!-- ===================================== GAMMA MAPPING =================================== -->
     <% @gamma_mapping.each do |from, to| %>
@@ -208,4 +245,15 @@
   <%#= render 'paren' %>
   <%= render 'home_end' %>
   <%#= render 'numbers' %>
+
+  <item>
+    <name>simultaneous_backspace</name>
+    <identifier>simultaneous_backspace</identifier>
+    <autogen>
+      __SimultaneousKeyPresses__
+      KeyCode::KEY_3, KeyCode::K,
+
+      KeyCode::DELETE,
+    </autogen>
+  </item>
 </root>

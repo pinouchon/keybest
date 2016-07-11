@@ -126,6 +126,7 @@ class PrivatexmlController < ApplicationController
      DOT: nil,
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
+    {}
   end
 
   def gamma_mapping
