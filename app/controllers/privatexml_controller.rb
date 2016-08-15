@@ -136,7 +136,7 @@ class PrivatexmlController < ApplicationController
      E: '__{ KeyCode::KEY_5 }__', # (
      R: "__{ KeyCode::KEY_5, #{opt} }__", # {
      T: '__{ KeyCode::KEY_3 }__', # ",
-     Y: "__{ KeyCode::KEY_1, #{shift} }__", # 1
+     Y: '__{ KeyCode::BRACKET_RIGHT }__', # $
      U: "__{ KeyCode::MINUS, #{opt} }__", # }
      I: '__{ KeyCode::MINUS }__', # )
      O: "__{ KeyCode::MINUS, #{shift_opt} }__", # ]
@@ -148,7 +148,7 @@ class PrivatexmlController < ApplicationController
      D: '__{ KeyCode::DOT }__', # :
      F: '__{ KeyCode::COMMA }__', # ;
      G: '__{ KeyCode::KEY_4 }__', # ' -----
-     H: "__{ KeyCode::KEY_0, #{shift} }__", # 0 -----
+     H: "__{ KeyCode::QUOTE, #{shift} }__", # % -----
      J: "__{ KeyCode::EQUAL, #{shift} }__", # _
      K: '__{ KeyCode::EQUAL }__', # -
      L: '__{ KeyCode::KEY_8 }__', # !
