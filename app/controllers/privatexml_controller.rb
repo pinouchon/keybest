@@ -143,10 +143,10 @@ class PrivatexmlController < ApplicationController
      P: "__{ KeyCode::BACKQUOTE, #{shift} }__", # >
 
      # 2nd line
-     A: "__{ KeyCode::DOT, #{shift} }__", # /
+     A: '__{ KeyCode::COMMA }__', # ;
      S: '__{ KeyCode::SLASH }__', # =
      D: '__{ KeyCode::DOT }__', # :
-     F: '__{ KeyCode::COMMA }__', # ;
+     F: "__{ KeyCode::DOT, #{shift} }__", # /
      G: '__{ KeyCode::KEY_4 }__', # ' -----
      H: "__{ KeyCode::QUOTE, #{shift} }__", # % -----
      J: "__{ KeyCode::EQUAL, #{shift} }__", # _
