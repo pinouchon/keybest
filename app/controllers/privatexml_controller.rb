@@ -38,9 +38,9 @@ class PrivatexmlController < ApplicationController
      KEY_4: 'KEY_4', # "
      KEY_5: 'BACKSLASH', # `
      KEY_6: %w(KEY_6 SHIFT_L),
-     KEY_7: %w(KEY_7 SHIFT_L),
+     KEY_7: nil,
      KEY_8: 'DELETE',
-     KEY_9: nil
+     KEY_9: 'RETURN'
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
