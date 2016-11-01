@@ -164,7 +164,7 @@ CGEventRef myCGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef
 
   int retEvt = 1;
   int arrowKeyJustPressed = 0;
-  if (keycode == (CGKeyCode)53) {
+  if (false && keycode == (CGKeyCode)53) {
     pthread_cancel(my_thread);
     exit(0);
   } else if (keycode == (CGKeyCode)keyUp ||

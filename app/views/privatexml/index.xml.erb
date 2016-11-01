@@ -147,6 +147,16 @@
       </autogen>
     <% end %>
 
+    <!-- ===================================== PREV AND NEXT TAB ================================ -->
+    <autogen>
+      __KeyToKey__ KeyCode::J, ModifierFlag::ALPHA, ModifierFlag::OPTION_L,
+      KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L
+    </autogen>
+    <autogen>
+      __KeyToKey__ KeyCode::L, ModifierFlag::ALPHA, ModifierFlag::OPTION_L,
+      KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L
+    </autogen>
+
 
     <!-- ===================================== ALPHA MAPPING ==================================== -->
     <% @alpha_mapping.each do |from, to| %>
