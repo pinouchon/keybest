@@ -110,10 +110,12 @@
       <!--__KeyToKey__ KeyCode::F, ModifierFlag::ALPHA,-->
       <!--KeyCode::DELETE-->
     <!--</autogen>-->
-    <autogen>
-      __KeyToKey__ KeyCode::COMMAND_L, ModifierFlag::ALPHA,
-      KeyCode::SHIFT_L, ModifierFlag::ALPHA
-    </autogen>
+
+    <!--<autogen>-->
+      <!--__KeyToKey__ KeyCode::COMMAND_L, ModifierFlag::ALPHA,-->
+      <!--KeyCode::SHIFT_L, ModifierFlag::ALPHA-->
+    <!--</autogen>-->
+
         <!--<autogen>-->
       <!--__KeyToKey__ KeyCode::SPACE, ModifierFlag::ALPHA-->
       <!--&lt;!&ndash;KeyCod  e::DELETE&ndash;&gt;-->
@@ -137,9 +139,24 @@
     <name>Mappings</name>
     <identifier>mappings</identifier>
 
+    <!-- ===================================== DIGITS ==================================== -->
+    <% (1..9).to_a.map do |i| %>
+      <autogen>
+        __KeyToKey__ KeyCode::KEY_<%= i %>, ModifierFlag::SHIFT_L,
+        KeyCode::KEY_<%= i %>, ModifierFlag::SHIFT_L
+      </autogen>
+    <% end %>
+
+
     <!-- ===================================== ALPHA MAPPING ==================================== -->
     <% @alpha_mapping.each do |from, to| %>
       <% next if to.nil? %>
+      <% if %W(U I O P H J K L QUOTE N M COMMA DOT KEY_8).include?(from) %>
+        <autogen>
+          __KeyToKey__ KeyCode::<%= from %>, ModifierFlag::ALPHA, ModifierFlag::COMMAND_L
+          <%= to %>, ModifierFlag::SHIFT_L
+        </autogen>
+      <% end %>
       <autogen>
         __KeyToKey__ KeyCode::<%= from %>, ModifierFlag::ALPHA
         <%= to %>
@@ -154,35 +171,7 @@
         <%= to %>
       </autogen>
     <% end %>
-    <!--hammerspoon bridge -->
-    <autogen>
-        __KeyToKey__ KeyCode::S, ModifierFlag::BETA
-        __{ KeyCode::S, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
-    <autogen>
-        __KeyToKey__ KeyCode::D, ModifierFlag::BETA
-        __{ KeyCode::D, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
-    <autogen>
-        __KeyToKey__ KeyCode::F, ModifierFlag::BETA
-        __{ KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
-    <autogen>
-        __KeyToKey__ KeyCode::Z, ModifierFlag::BETA
-        __{ KeyCode::Z, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
-    <autogen>
-        __KeyToKey__ KeyCode::X, ModifierFlag::BETA
-        __{ KeyCode::X, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
-    <autogen>
-        __KeyToKey__ KeyCode::C, ModifierFlag::BETA
-        __{ KeyCode::C, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
-    <autogen>
-        __KeyToKey__ KeyCode::V, ModifierFlag::BETA
-        __{ KeyCode::V, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__
-    </autogen>
+
 
 
     <!-- ===================================== GAMMA MAPPING =================================== -->
@@ -204,6 +193,15 @@
     <% end %>
 
     <!-- ===================================== MISC =================================== -->
+    <!-- Invert command+m and command+f -->
+    <autogen>
+      __KeyToKey__ KeyCode::E, ModifierFlag::COMMAND_L,
+      KeyCode::F, ModifierFlag::COMMAND_L
+    </autogen>
+    <!--<autogen>-->
+      <!--__KeyToKey__ KeyCode::U, ModifierFlag::COMMAND_L,-->
+      <!--KeyCode::M, ModifierFlag::COMMAND_L-->
+    <!--</autogen>-->
     <!-- pound to _ -->
     <autogen>
       __KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::NONE,

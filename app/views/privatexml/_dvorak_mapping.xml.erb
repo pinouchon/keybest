@@ -2,6 +2,7 @@
   <name>dvorak_remapping</name>
   <identifier>private.dvorak_remapping</identifier>
 <% @dvorak_mapping.each do |key_from, key_to| %>
+  <% next if key_to.nil? %>
   <% if key_to.is_a?(Array) %>
   <autogen>
     __KeyToKey__
