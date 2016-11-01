@@ -21,6 +21,10 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", function() -- S
   hs.application.launchOrFocus("Slack")
 end)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "V", function() -- S
+  hs.application.launchOrFocus("Skype")
+end)
+
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function() -- R
   hs.application.launchOrFocus("RubyMine")
 end)
