@@ -9,7 +9,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "A", function()
   hs.application.launchOrFocus("Finder")
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "F", function() -- N
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Q", function() -- A
   hs.application.launchOrFocus("Notes")
 end)
 
@@ -25,7 +25,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "V", function() -- S
   hs.application.launchOrFocus("Skype")
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "G", function() -- R
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "X", function() -- R
   hs.application.launchOrFocus("RubyMine")
 end)
 
