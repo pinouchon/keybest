@@ -27,20 +27,20 @@ class PrivatexmlController < ApplicationController
   end
 
   def qgmly_mapping
-    {Q: 'A', W: 'G', E: 'SEMICOLON', R: 'L', T: 'Z', Y: 'Y', U: 'F', I: 'U', O: 'B', P: 'RETURN',
+    {Q: 'A', W: 'G', E: 'SEMICOLON', R: 'L', T: 'Z', Y: 'Y', U: 'F', I: 'U', O: 'B', P: 'DELETE',
      A: 'D', S: 'S', D: 'T', F: 'N', G: 'R', H: 'I', J: 'Q', K: 'E', L: 'O', QUOTE: 'H',
      Z: 'W', X: 'X', C: 'C', V: 'V', B: 'J', N: 'K', M: 'P', COMMA: %w(COMMA SHIFT_L), DOT: 'M', SLASH: 'F',
      # top line
      KEY_0: %w(KEY_0 SHIFT_L),
      KEY_1: %w(KEY_1 SHIFT_L),
-     KEY_2: nil,
-     KEY_3: 'KEY_3', # '
-     KEY_4: 'KEY_4', # "
-     KEY_5: 'BACKSLASH', # `
+     KEY_2: %w(KEY_2 SHIFT_L),
+     KEY_3: %w(KEY_3 SHIFT_L),
+     KEY_4: %w(KEY_4 SHIFT_L),
+     KEY_5: %w(KEY_5 SHIFT_L),
      KEY_6: %w(KEY_6 SHIFT_L),
-     KEY_7: nil,
-     KEY_8: 'DELETE',
-     KEY_9: 'RETURN'
+     KEY_7: %w(KEY_7 SHIFT_L),
+     KEY_8: %w(KEY_8 SHIFT_L),
+     KEY_9: %w(KEY_9 SHIFT_L),
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
     }.with_indifferent_access
   end
@@ -67,8 +67,8 @@ class PrivatexmlController < ApplicationController
      A: '__{ KeyCode::A, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__', # hammer
      S: '__{ KeyCode::S, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__', # hammer
      D: '__{ KeyCode::D, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__', # hammer
-     F: '__{ KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__', # hammer
-     G: '__{ KeyCode::G, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L, ModifierFlag::CONTROL_L }__', # hammer
+     F: "__{ KeyCode::KEY_3, KeyCode::KEY_3, #{left} }__", # "",
+     G: "__{ KeyCode::KEY_4, KeyCode::KEY_4, #{left} }__", # '',
      H: '__{ KeyCode::RawValue::0x97 }__', # nil, # 0, # ----- # todo: <- NC #'__{ KeyCode::M }__',
      J: '__{ KeyCode::CURSOR_LEFT }__', # LEFT
      K: '__{ KeyCode::CURSOR_DOWN }__', # DOWN
@@ -149,9 +149,9 @@ class PrivatexmlController < ApplicationController
      A: '__{ KeyCode::COMMA }__', # ;
      S: '__{ KeyCode::SLASH }__', # =
      D: '__{ KeyCode::DOT }__', # :
-     F: "__{ KeyCode::DOT, #{shift} }__", # /
-     G: '__{ KeyCode::BRACKET_RIGHT }__', # $
-     H: "__{ KeyCode::QUOTE, #{shift} }__", # %
+     F: '__{ KeyCode::KEY_3 }__', # "
+     G: '__{ KeyCode::KEY_4 }__', # '
+     H: "__{ KeyCode::DOT, #{shift} }__", # /
      J: "__{ KeyCode::EQUAL, #{shift} }__", # _
      K: '__{ KeyCode::EQUAL }__', # -
      L: '__{ KeyCode::KEY_8 }__', # !
@@ -160,7 +160,7 @@ class PrivatexmlController < ApplicationController
      # 3rd line
      Z: "__{ KeyCode::N, #{opt} }__", # ~
      X: "__{ KeyCode::M, #{shift} }__", # ?
-     C: '__{ KeyCode::DANISH_DOLLAR }__', # @
+     C: '__{ KeyCode::BRACKET_RIGHT }__', # $,
      V: "__{ KeyCode::DOT, #{shift_opt} }__", # \
      B: '__{ KeyCode::KEY_1 }__', # &
      N: "__{ KeyCode::SLASH, #{shift} }__", # +
@@ -170,12 +170,12 @@ class PrivatexmlController < ApplicationController
 
      # top line
      KEY_2: "__{ KeyCode::L, #{shift_opt} }__", # |
-     KEY_3: '__{ KeyCode::KEY_3 }__', # ',
-     KEY_4: '__{ KeyCode::KEY_4 }__', # '
-     KEY_5: '__{ KeyCode::BACKSLASH }__', # `
-     KEY_6: '__{ KeyCode::BRACKET_LEFT }__', # ^
+     KEY_3: '__{ KeyCode::BACKSLASH }__', # `
+     KEY_4: '__{ KeyCode::DANISH_DOLLAR }__', # @
+     KEY_5: "__{ KeyCode::QUOTE, #{shift} }__", # %
+     KEY_6: nil,
      KEY_7: nil,
-     KEY_8: nil,
+     KEY_8: '__{ KeyCode::BRACKET_LEFT }__', # ^
      KEY_9: nil,
 
      # BACKQUOTE: 'BACKSLASH', Z: 'COMMA',
