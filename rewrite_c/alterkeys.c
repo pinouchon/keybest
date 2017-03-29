@@ -94,6 +94,21 @@ int alpha_state = 0;
 #define SET_CMD CGEventSetFlags(*event, *flags | NX_COMMANDMASK) // *flags |
 #define SET_SHIFT_ALT CGEventSetFlags(*event, *flags | (NX_SHIFTMASK | NX_ALTERNATEMASK))
 
+void PostKeyWithModifiers(CGKeyCode key, CGEventFlags modifiers)
+{
+        CGEventSourceRef source = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
+
+        CGEventRef keyDown = CGEventCreateKeyboardEvent(source, key, TRUE);
+        CGEventSetFlags(keyDown, modifiers);
+        CGEventRef keyUp = CGEventCreateKeyboardEvent(source, key, FALSE);
+
+        CGEventPost(kCGAnnotatedSessionEventTap, keyDown);
+        CGEventPost(kCGAnnotatedSessionEventTap, keyUp);
+
+        CFRelease(keyUp);
+        CFRelease(keyDown);
+        CFRelease(source);
+}
 
 int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
 // TOP ROW
@@ -134,7 +149,7 @@ int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
     else if (keycode == B__) keycode = J__;
     else if (keycode == N__) keycode = K__;
     else if (keycode == KC(46)) keycode = P__;
-    else if (keycode == KC(43)) keycode = KC(43);
+    else if (keycode == KC(43)) {keycode = KC(43);SET_SHIFT;}
     else if (keycode == KC(47)) keycode = KC(46);
 //    else if (keycode == KC(44)) keycode = O__;//? DELTA
 
@@ -212,13 +227,37 @@ int gammaMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
   return keycode;
 }
 
-int alphaMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
+int alphaMapping(int keycode, CGEventRef* event, CGEventFlags* flags, int type) {
   // TOP ROW
   if (keycode == A__) {KC(10);SET_SHIFT;}
-  else if (keycode == Z__) {SET_KC(23);SET_SHIFT_ALT;}
-  else if (keycode == E__) {SET_KC(23);SET_NONE;}
-  else if (keycode == R__) {SET_KC(23);SET_ALT;}
-  else if (keycode == T__) {SET_KC(50);SET_NONE;}
+  else if (keycode == Z__) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(23), NX_SHIFTMASK | NX_ALTERNATEMASK);
+      PostKeyWithModifiers(KC(27), NX_SHIFTMASK | NX_ALTERNATEMASK);
+    }
+    SET_KC(123);SET_NONE;
+  } // []
+  else if (keycode == E__) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(23), 0);
+      PostKeyWithModifiers(KC(27), 0);
+    }
+    SET_KC(123);SET_NONE;
+  } // ()
+  else if (keycode == R__) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(23), NX_ALTERNATEMASK);
+      PostKeyWithModifiers(KC(27), NX_ALTERNATEMASK);
+    }
+    SET_KC(123);SET_NONE;
+  } // {}
+  else if (keycode == T__) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(50), 0);
+      PostKeyWithModifiers(KC(50), NX_SHIFTMASK);
+    }
+    SET_KC(123);SET_NONE;
+  } // <>
   else if (keycode == Y__) {SET_KC(50);SET_SHIFT;}
   else if (keycode == U__) {SET_KC(123);SET_CMD;} // home
   else if (keycode == I__) {SET_KC(126);} // up
@@ -232,8 +271,14 @@ int alphaMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
   else if (keycode == Q__) {SET_KC(43);}
   else if (keycode == S__) {SET_KC(44);}
   else if (keycode == D__) {SET_KC(47);}
-  else if (keycode == F__) {SET_KC(20);}
-  else if (keycode == G__) {SET_KC(21);}
+  else if (keycode == F__) {
+    if (type == kCGEventKeyDown) {PostKeyWithModifiers(KC(20), 0);PostKeyWithModifiers(KC(20), 0);}
+    SET_KC(123);SET_NONE;
+  } // "
+  else if (keycode == G__) {
+    if (type == kCGEventKeyDown) {PostKeyWithModifiers(KC(21), 0);PostKeyWithModifiers(KC(21), 0);}
+    SET_KC(123);SET_NONE;
+  } // '
   else if (keycode == H__) {SET_KC(47);}
   else if (keycode == J__) {SET_KC(123);} // left
   else if (keycode == K__) {SET_KC(125);} // down
@@ -258,20 +303,38 @@ int alphaMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
   // NUMBERS ROW
 //  else if (keycode == __0) {SET_SHIFT;}
   else if (keycode == __1) {SET_KC(33);} // ^
-  else if (keycode == __2) {SET_KC(37);SET_SHIFT_ALT;} // |
-  else if (keycode == __3) {SET_KC(42);} // `
+  else if (keycode == __2) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(37), NX_SHIFTMASK | NX_ALTERNATEMASK);
+      PostKeyWithModifiers(KC(37), NX_SHIFTMASK | NX_ALTERNATEMASK);
+    }
+    SET_KC(123);SET_NONE;
+  } // |
+  else if (keycode == __3) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(42), 0);
+      PostKeyWithModifiers(KC(42), 0);
+    }
+    SET_KC(123);SET_NONE;
+  } // `
   else if (keycode == __4) {SET_KC(10);} // @
   else if (keycode == __5) {SET_KC(39);SET_SHIFT;} // %
   //else if (keycode == __6) {SET_SHIFT;}
   //else if (keycode == __7) {SET_SHIFT;}
   //else if (keycode == __8) {SET_SHIFT;}
   //else if (keycode == __9) {SET_SHIFT;}
+  else if (keycode == KC(36)) {
+    if (type == kCGEventKeyDown) {
+      PostKeyWithModifiers(KC(36), *flags);
+      PostKeyWithModifiers(KC(36), *flags);
+    }
+    SET_KC(123);SET_NONE;
+  } // enter
 
   return keycode;
 }
 
 // This callback will be invoked every time there is a keystroke.
-//
 CGEventRef
 myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
                   CGEventRef event, void *refcon)
@@ -289,14 +352,14 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
 
     // Swap 'a' (keycode=0) and 'z' (keycode=6).
-    printf("KEY: %i (%i)", keycode, alpha_state);
+    //printf("KEY: %i (%i)", keycode, alpha_state);
 //    printf("shift?: %i (%i)\n", flags & NX_SHIFTMASK);
 //    printf("opt?: %i (%i)\n", flags & NX_ALTERNATEMASK);
 //    printf("com?: %i (%i)\n", flags & NX_COMMANDMASK);
 
 
 
-    printf("  --\n");
+    //printf("  --\n");
 
     if (keycode == (CGKeyCode)48) {
       doReturn = 0;
@@ -319,22 +382,50 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
     // __SHIFT == 0 && __CONTROL == 0 && __ALT == 0 && __CMD == 0 &&
     if (gamma_state == 0 && alpha_state == 0) {
-      printf(" NO_MODIF ");
-      keycode = noModifierMapping(keycode, &event, &flags);
+      if (keycode == E__ && __CMD != 0) { // search
+        keycode = F__;
+      }
+      else if (keycode == __1 && __CMD != 0) { // launch app
+        keycode = T__;
+        CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
+      }
+      else if (keycode == __2 && __CMD != 0) { // launch app
+        keycode = R__;
+        CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
+      }
+      else if (keycode == __3 && __CMD != 0) { // launch app
+        keycode = C__;
+        CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
+      }
+      else if (keycode == __4 && __CMD != 0) { // launch app
+        keycode = S__;
+        CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
+      }
+      else if (keycode == __5 && __CMD != 0) { // launch app
+        keycode = N__;
+        CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
+      }
+      else if (keycode == __6 && __CMD != 0) { // launch app
+        keycode = F__;
+        CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
+      } else {
+        keycode = noModifierMapping(keycode, &event, &flags);
+      }
+
 //    } else if (__SHIFT != 0 && __CONTROL == 0 && __ALT == 0 && __CMD == 0 && gamma_state == 0 && alpha_state == 0) {
 //      printf(" SHIFT ");
 //      keycode = noModifierMapping(keycode, &event, &flags);
     } else if (gamma_state == 1) {
-      printf(" GAMMA ");
+      //printf(" GAMMA ");
       keycode = gammaMapping(keycode, &event, &flags);
     } else if (alpha_state == 1) {
-      printf(" ALPHA");
-      keycode = alphaMapping(keycode, &event, &flags);
+      //printf(" ALPHA");
+      keycode = alphaMapping(keycode, &event, &flags, type);
     } else {
     }
 
      flags = CGEventGetFlags(event);
-     printf("FLAGS: shift:%i control:%i alt:%i cmd:%i\n ", __SHIFT != 0, __CONTROL != 0, __ALT != 0, __CMD != 0);
+     //printf("FLAGS: shift:%i control:%i alt:%i cmd:%i\n ", __SHIFT != 0, __CONTROL != 0, __ALT != 0, __CMD != 0);
     // Set the modified keycode field in the event.
     CGEventSetIntegerValueField(event, kCGKeyboardEventKeycode, (int64_t)keycode);
 //    if (alpha_state == 1) {
