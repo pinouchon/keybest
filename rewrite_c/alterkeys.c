@@ -13,6 +13,7 @@
 #include <ApplicationServices/ApplicationServices.h>
 int gamma_state = 0;
 int alpha_state = 0;
+int beta_state = 0;
 
 #define KEY_A 12
 #define KEY_B 11
@@ -334,6 +335,32 @@ int alphaMapping(int keycode, CGEventRef* event, CGEventFlags* flags, int type) 
   return keycode;
 }
 
+int betaMapping(int keycode, CGEventRef* event, CGEventFlags* flags, int type) {
+  if (0) {}
+  else if (keycode == J__) {SET_KC(29);}
+  else if (keycode == K__) {SET_KC(19);}
+  else if (keycode == L__) {
+    if (type == kCGEventKeyDown) {PostKeyWithModifiers(KC(33), 0);}
+    SET_KC(31);
+  }
+  else if (keycode == I__) {SET_KC(39);}
+  else if (keycode == H__) {
+    if (type == kCGEventKeyDown) {PostKeyWithModifiers(KC(33), 0);}
+    SET_KC(34);
+  }
+  else if (keycode == KC(43)) {SET_KC(26);}
+  else if (keycode == KC(47)) {
+    if (type == kCGEventKeyDown) {PostKeyWithModifiers(KC(33), 0);}
+    SET_KC(14);
+  }
+
+  return keycode;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+// CONTROLLER
+/////////////////////////////////////////////////////////////////////////////////////
+
 // This callback will be invoked every time there is a keystroke.
 CGEventRef
 myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
@@ -361,13 +388,26 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
     //printf("  --\n");
 
-    if (keycode == (CGKeyCode)48) {
+    if (keycode == (CGKeyCode)48 && __CMD != 0) { // cmd+tab = cmd+`
+      keycode = (CGKeyCode)29;
+      CGEventSetFlags(event, NX_COMMANDMASK);
+      CGEventSetIntegerValueField(event, kCGKeyboardEventKeycode, (int64_t)keycode);
+      return event;
+    }
+
+    if (keycode == (CGKeyCode)48) { // ALPHA HYPER KEY
       doReturn = 0;
       if (type == kCGEventKeyDown) alpha_state = 1;
       if (type == kCGEventKeyUp) alpha_state = 0;
       return NULL;
     }
-    if (keycode == (CGKeyCode)41) {
+    if (keycode == (CGKeyCode)50) { // BETA HYPER KEY
+      doReturn = 0;
+      if (type == kCGEventKeyDown) {beta_state = 1;}
+      if (type == kCGEventKeyUp) {beta_state = 0;}
+      return NULL;
+    }
+    if (keycode == (CGKeyCode)41) { // GAMMA HYPER KEY
       doReturn = 0;
       if (type == kCGEventKeyDown) {gamma_state = 1;}
       if (type == kCGEventKeyUp) {gamma_state = 0;}
@@ -381,7 +421,7 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
     }
 
     // __SHIFT == 0 && __CONTROL == 0 && __ALT == 0 && __CMD == 0 &&
-    if (gamma_state == 0 && alpha_state == 0) {
+    if (gamma_state == 0 && alpha_state == 0 && beta_state == 0) {
       if (keycode == E__ && __CMD != 0) { // search
         keycode = F__;
       }
@@ -421,10 +461,12 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
     } else if (alpha_state == 1) {
       //printf(" ALPHA");
       keycode = alphaMapping(keycode, &event, &flags, type);
+    } else if (beta_state == 1) {
+      keycode = betaMapping(keycode, &event, &flags, type);
     } else {
     }
 
-     flags = CGEventGetFlags(event);
+     //flags = CGEventGetFlags(event);
      //printf("FLAGS: shift:%i control:%i alt:%i cmd:%i\n ", __SHIFT != 0, __CONTROL != 0, __ALT != 0, __CMD != 0);
     // Set the modified keycode field in the event.
     CGEventSetIntegerValueField(event, kCGKeyboardEventKeycode, (int64_t)keycode);
