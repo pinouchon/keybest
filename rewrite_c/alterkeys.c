@@ -8,7 +8,7 @@
 // is enabled. To do so, select the "Enable access for assistive devices"
 // checkbox in the Universal Access system preference pane.
 
-// start with: gcc -Wall -o alterkeys alterkeys.c -framework ApplicationServices && ./alterkeys
+// start with: gcc -Wall -o alterkeys alterkeys.c -framework ApplicationServices && sudo ./alterkeys
 
 #include <ApplicationServices/ApplicationServices.h>
 int gamma_state = 0;
