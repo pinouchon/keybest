@@ -387,6 +387,11 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
 
     //printf("  --\n");
+    if (__SHIFT != 0 && __CMD != 0 &&
+        (keycode == __0 || keycode == __1 || keycode == __2 || keycode == __3 || keycode == __4 ||
+         keycode == __5 || keycode == __6 || keycode == __7 || keycode == __8 || keycode == __9)) {
+      return event;
+    }
 
     if (keycode == (CGKeyCode)48 && __CMD != 0) { // cmd+tab = cmd+`
       keycode = (CGKeyCode)29;
