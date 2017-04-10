@@ -94,6 +94,7 @@ int beta_state = 0;
 #define SET_ALT CGEventSetFlags(*event, *flags | NX_ALTERNATEMASK)
 #define SET_CMD CGEventSetFlags(*event, *flags | NX_COMMANDMASK) // *flags |
 #define SET_SHIFT_ALT CGEventSetFlags(*event, *flags | (NX_SHIFTMASK | NX_ALTERNATEMASK))
+#define SET_FN CGEventSetFlags(*event, *flags | NX_SECONDARYFNMASK)
 
 void PostKeyWithModifiers(CGKeyCode key, CGEventFlags modifiers)
 {
@@ -152,7 +153,7 @@ int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
     else if (keycode == KC(46)) keycode = P__;
     else if (keycode == KC(43)) {keycode = KC(43);SET_SHIFT;}
     else if (keycode == KC(47)) keycode = KC(46);
-//    else if (keycode == KC(44)) keycode = O__;//? DELTA
+    else if (keycode == KC(44)) keycode = KC(51);//backspace
 
     // NUMBERS ROW
     else if (keycode == KC(10)) {SET_KC(48);}
@@ -280,26 +281,26 @@ int alphaMapping(int keycode, CGEventRef* event, CGEventFlags* flags, int type) 
     if (type == kCGEventKeyDown) {PostKeyWithModifiers(KC(21), 0);PostKeyWithModifiers(KC(21), 0);}
     SET_KC(123);SET_NONE;
   } // '
-  else if (keycode == H__) {SET_KC(47);}
+  else if (keycode == H__) keycode = O__;// NULL
   else if (keycode == J__) {SET_KC(123);} // left
   else if (keycode == K__) {SET_KC(125);} // down
   else if (keycode == L__) {SET_KC(124);} // right
   //    else if (keycode == M__) keycode = O__;///////
-  else if (keycode == KC(39)) keycode = O__;// NULL
+  else if (keycode == KC(39)) {SET_KC(51);SET_ALT;}// delete word
   else if (keycode == KC(42)) keycode = O__;// NULL
 
   // BOTTOM ROW
   //  else if (keycode == KC(50)) keycode = O__;//? BETA
   else if (keycode == W__) {SET_KC(45);SET_ALT;}
   else if (keycode == X__) {SET_KC(46);SET_SHIFT;}
-  else if (keycode == C__) {SET_KC(30);}
+  else if (keycode == C__) {SET_KC(36);}
   else if (keycode == V__) {SET_KC(47);SET_SHIFT_ALT;}
   else if (keycode == B__) {SET_KC(18);}
-  else if (keycode == N__) {SET_KC(44);SET_SHIFT;}
+  else if (keycode == N__) {SET_KC(2);SET_CONTROL;} // right delete
   else if (keycode == KC(46)) {SET_KC(123);SET_ALT;} // prev word
-  else if (keycode == KC(43)) {SET_KC(43);SET_SHIFT;}
+  else if (keycode == KC(43)) {SET_KC(51);SET_ALT;} // delete word
   else if (keycode == KC(47)) {SET_KC(124);SET_ALT;} // next word
-  //  else if (keycode == KC(44)) keycode = O__;//? DELTA
+  else if (keycode == KC(44)) {SET_KC(51);}// backspace
 
   // NUMBERS ROW
 //  else if (keycode == __0) {SET_SHIFT;}
@@ -379,7 +380,7 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
 
     // Swap 'a' (keycode=0) and 'z' (keycode=6).
-    //printf("KEY: %i (%i)", keycode, alpha_state);
+    printf("KEY: %i (%i)\n", keycode, alpha_state);
 //    printf("shift?: %i (%i)\n", flags & NX_SHIFTMASK);
 //    printf("opt?: %i (%i)\n", flags & NX_ALTERNATEMASK);
 //    printf("com?: %i (%i)\n", flags & NX_COMMANDMASK);
@@ -388,7 +389,7 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
     //printf("  --\n");
 
-    if (keycode == (CGKeyCode)48 && __CMD != 0) { // cmd+tab = cmd+`
+    if (keycode == (CGKeyCode)50 && __CMD != 0) { // cmd+tab = cmd+`
       keycode = (CGKeyCode)29;
       CGEventSetFlags(event, NX_COMMANDMASK);
       CGEventSetIntegerValueField(event, kCGKeyboardEventKeycode, (int64_t)keycode);
