@@ -14,7 +14,11 @@
 int gamma_state = 0;
 int alpha_state = 0;
 int beta_state = 0;
+int current_layout = 2;
 
+#define AZERTY 1
+#define KEYBEST 2
+#define CAESAR 3
 #define KEY_A 12
 #define KEY_B 11
 #define KEY_C 8
@@ -153,7 +157,7 @@ int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
     else if (keycode == KC(46)) keycode = P__;
     else if (keycode == KC(43)) {keycode = KC(43);SET_SHIFT;}
     else if (keycode == KC(47)) keycode = KC(46);
-    else if (keycode == KC(44)) keycode = KC(51);//backspace
+    //else if (keycode == KC(44)) keycode = KC(51);//backspace
 
     // NUMBERS ROW
     else if (keycode == KC(10)) {SET_KC(48);}
@@ -169,6 +173,99 @@ int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
     else if (keycode == __9) {SET_SHIFT;}
 
     return keycode;
+}
+
+//<!--SPEED-->
+//    <autogen>
+//      __KeyToKey__ KeyCode::D
+//     __{ KeyCode::KEY_5, ModifierFlag::SHIFT_L, ModifierFlag::OPTION_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::F
+//      __{ KeyCode::MINUS, ModifierFlag::SHIFT_L, ModifierFlag::OPTION_L }__
+//    </autogen>
+//
+//    <!--TOP ROW-->
+//    <autogen>
+//      __KeyToKey__ KeyCode::Q
+//      __{ KeyCode::KEY_1, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::W
+//      __{ KeyCode::KEY_2, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::E
+//      __{ KeyCode::KEY_3, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::R
+//      __{ KeyCode::KEY_4, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::T
+//      __{ KeyCode::KEY_5, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//
+//    <!--MIDDLE ROW-->
+//    <autogen>
+//      __KeyToKey__ KeyCode::A
+//      __{ KeyCode::KEY_9, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::S
+//      __{ KeyCode::KEY_0, ModifierFlag::SHIFT_L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::G
+//      __{ KeyCode::SLASH }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::H
+//      __{ KeyCode::P }__
+//    </autogen>
+//
+//    <!--BOTTOM ROW-->
+//    <autogen>
+//      __KeyToKey__ KeyCode::BACKQUOTE
+//      __{ KeyCode::L }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::X
+//      __{ KeyCode::T }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::V
+//      __{ KeyCode::F }__
+//    </autogen>
+//    <autogen>
+//      __KeyToKey__ KeyCode::B
+//      __{ KeyCode::D }__
+//    </autogen>
+int caesarMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
+  // speed
+  if (keycode == D__) {SET_KC(23);SET_SHIFT_ALT;}
+  else if (keycode == F__) {SET_KC(27);SET_SHIFT_ALT;}
+
+  // top row
+  else if (keycode == A__) {SET_KC(18);SET_SHIFT;}
+  else if (keycode == Z__) {SET_KC(19);SET_SHIFT;}
+  else if (keycode == E__) {SET_KC(20);SET_SHIFT;}
+  else if (keycode == R__) {SET_KC(21);SET_SHIFT;}
+  else if (keycode == T__) {SET_KC(23);SET_SHIFT;}
+
+  // middle row
+  else if (keycode == Q__) {SET_KC(25);SET_SHIFT;}
+  else if (keycode == S__) {SET_KC(29);SET_SHIFT;}
+  else if (keycode == G__) {SET_KC(44);}
+  else if (keycode == H__) {SET_KC(35);}
+
+  // bottom row
+  else if (keycode == W__) {keycode = W__;}
+  else if (keycode == X__) {keycode = T__;}
+  else if (keycode == V__) {keycode = F__;}
+  else if (keycode == B__) {keycode = D__;}
+  return keycode;
 }
 
 int gammaMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
@@ -380,12 +477,27 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
 
     // Swap 'a' (keycode=0) and 'z' (keycode=6).
-    printf("KEY: %i (%i)\n", keycode, alpha_state);
+    //printf("KEY: %i (%i)\n", keycode, current_layout);
 //    printf("shift?: %i (%i)\n", flags & NX_SHIFTMASK);
 //    printf("opt?: %i (%i)\n", flags & NX_ALTERNATEMASK);
 //    printf("com?: %i (%i)\n", flags & NX_COMMANDMASK);
 
 
+    if (keycode == __1 && __CONTROL != 0) {
+      current_layout = AZERTY;
+      return NULL;
+    }
+    if (keycode == __2 && __CONTROL != 0) {
+      current_layout = KEYBEST;
+      return NULL;
+    }
+    if (keycode == __3 && __CONTROL != 0) {
+      current_layout = CAESAR;
+      return NULL;
+    }
+    if (current_layout == AZERTY) {
+      return event;
+    }
 
     //printf("  --\n");
     if (__SHIFT != 0 && __CMD != 0 &&
@@ -393,6 +505,8 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
          keycode == __5 || keycode == __6 || keycode == __7 || keycode == __8 || keycode == __9)) {
       return event;
     }
+
+
 
     if (keycode == (CGKeyCode)50 && __CMD != 0) { // cmd+tab = cmd+`
       keycode = (CGKeyCode)29;
@@ -425,6 +539,7 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
       CGEventSetFlags(event, (~NX_COMMANDMASK & flags) | NX_SHIFTMASK);
       flags = CGEventGetFlags(event);
     }
+    if (keycode == KC(44) && __CMD == 0) keycode = KC(51);//backspace
 
     // __SHIFT == 0 && __CONTROL == 0 && __ALT == 0 && __CMD == 0 &&
     if (gamma_state == 0 && alpha_state == 0 && beta_state == 0) {
@@ -455,7 +570,11 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
         keycode = F__;
         CGEventSetFlags(event, NX_CONTROLMASK | NX_ALTERNATEMASK | NX_COMMANDMASK);
       } else {
-        keycode = noModifierMapping(keycode, &event, &flags);
+        if (current_layout == KEYBEST) {
+          keycode = noModifierMapping(keycode, &event, &flags);
+        } else if (current_layout == CAESAR) {
+          keycode = caesarMapping(keycode, &event, &flags);
+        }
       }
 
 //    } else if (__SHIFT != 0 && __CONTROL == 0 && __ALT == 0 && __CMD == 0 && gamma_state == 0 && alpha_state == 0) {
