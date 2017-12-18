@@ -11,6 +11,18 @@
 // start with: gcc -Wall -o alterkeys alterkeys.c -framework ApplicationServices && sudo ./alterkeys
 
 #include <ApplicationServices/ApplicationServices.h>
+
+#include <unistd.h>
+#include <pthread.h>
+#include <sys/time.h>                // for gettimeofday()
+
+pthread_mutex_t lock;
+int just_pressed = 0;
+int pressing_up = 0;    // int releasing_up;
+int pressing_down = 0;  // int releasing_down;
+int pressing_left = 0;  // int releasing_left;
+int pressing_right = 0; // int releasing_right;
+
 int gamma_state = 0;
 int alpha_state = 0;
 int beta_state = 0;
@@ -114,6 +126,63 @@ void PostKeyWithModifiers(CGKeyCode key, CGEventFlags modifiers)
         CFRelease(keyUp);
         CFRelease(keyDown);
         CFRelease(source);
+}
+
+void* keyThread(void *threadid)
+{
+   long tid;
+   tid = (long)threadid;
+   struct timeval t1, t2;
+   double lastTickSince = 0;
+
+   //printf("Hello World! It's me, thread #%ld!\n", tid);
+   gettimeofday(&t1, NULL);
+
+   while(1) {
+     pthread_mutex_lock(&lock);
+
+     gettimeofday(&t1, NULL);
+
+     pthread_mutex_unlock(&lock);
+
+     lastTickSince = (t1.tv_sec - t2.tv_sec) * 1000.0;
+     lastTickSince += (t1.tv_usec - t2.tv_usec) / 1000.0;
+
+     if (just_pressed || lastTickSince > (50)) {
+       just_pressed = 0;
+       gettimeofday(&t2, NULL);
+       if (pressing_up) { PostKeyWithModifiers(KC(126), 0); }
+       if (pressing_down) { PostKeyWithModifiers(KC(125), 0); }
+       if (pressing_left) { PostKeyWithModifiers(KC(123), 0); }
+       if (pressing_right) { PostKeyWithModifiers(KC(124), 0); }
+     }
+     if (current_layout == CAESAR) {
+       usleep(10000);
+     } else {
+       usleep(900000);//0
+     }
+
+   }
+   pthread_exit(NULL);
+}
+
+void startThread() {
+    pthread_t my_thread;
+    int rc;
+    void *t = (void *)NULL;
+
+    puts("init mutex");
+    if (pthread_mutex_init(&lock, NULL) != 0)
+    {
+        printf("\n mutex init failed\n");
+        exit(-1);
+    }
+    puts("starting thread");
+    rc = pthread_create(&my_thread, NULL, keyThread, (void *)t);
+    if (rc){
+      printf("ERROR; return code from pthread_create() is %d\n", rc);
+      exit(-1);
+    }
 }
 
 int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
@@ -242,21 +311,44 @@ int noModifierMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
 //      __KeyToKey__ KeyCode::B
 //      __{ KeyCode::D }__
 //    </autogen>
-int caesarMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
-  // speed
-  if (keycode == D__) {SET_KC(23);SET_SHIFT_ALT;}
-  else if (keycode == F__) {SET_KC(27);SET_SHIFT_ALT;}
-
+int caesarMapping(int keycode, CGEventRef* event, CGEventFlags* flags, int type, int *doReturn) {
   // top row
+  if (0) {}
   else if (keycode == A__) {SET_KC(18);SET_SHIFT;}
-  else if (keycode == Z__) {SET_KC(19);SET_SHIFT;}
-  else if (keycode == E__) {SET_KC(20);SET_SHIFT;}
-  else if (keycode == R__) {SET_KC(21);SET_SHIFT;}
+  else if (keycode == Z__) {//SET_KC(19);SET_SHIFT;
+    SET_KC(23);SET_SHIFT_ALT;
+  }
+  else if (keycode == E__) {//SET_KC(20);SET_SHIFT; --
+    pthread_mutex_lock(&lock);
+    pressing_up = type == kCGEventKeyDown ? 1 : 0;just_pressed = 1;
+    pthread_mutex_unlock(&lock);
+    *doReturn = 0;
+  }
+  else if (keycode == R__) {//SET_KC(21);SET_SHIFT;
+    SET_KC(27);SET_SHIFT_ALT;
+  }
   else if (keycode == T__) {SET_KC(23);SET_SHIFT;}
 
   // middle row
-  else if (keycode == Q__) {SET_KC(25);SET_SHIFT;}
-  else if (keycode == S__) {SET_KC(29);SET_SHIFT;}
+  else if (keycode == Q__) {SET_KC(20);SET_SHIFT;}
+  else if (keycode == S__) {//SET_KC(29);SET_SHIFT;
+    pthread_mutex_lock(&lock);
+    pressing_left = type == kCGEventKeyDown ? 1 : 0;just_pressed = 1;
+    pthread_mutex_unlock(&lock);
+    *doReturn = 0;
+  }
+  else if (keycode == D__) {//SET_KC(23);SET_SHIFT_ALT; ---
+    pthread_mutex_lock(&lock);
+    pressing_down = type == kCGEventKeyDown ? 1 : 0;just_pressed = 1;
+    pthread_mutex_unlock(&lock);
+    *doReturn = 0;
+  }
+  else if (keycode == F__) {//SET_KC(27);SET_SHIFT_ALT; --
+    pthread_mutex_lock(&lock);
+    pressing_right = type == kCGEventKeyDown ? 1 : 0;just_pressed = 1;
+    pthread_mutex_unlock(&lock);
+    *doReturn = 0;
+  }
   else if (keycode == G__) {SET_KC(44);}
   else if (keycode == H__) {SET_KC(35);}
 
@@ -265,6 +357,11 @@ int caesarMapping(int keycode, CGEventRef* event, CGEventFlags* flags) {
   else if (keycode == X__) {keycode = T__;}
   else if (keycode == V__) {keycode = F__;}
   else if (keycode == B__) {keycode = D__;}
+
+  else if (keycode == __1) {SET_KC(29);SET_SHIFT;}
+  else if (keycode == __2) {SET_KC(19);SET_SHIFT;}
+  else if (keycode == __3) {SET_KC(21);SET_SHIFT;}
+  else if (keycode == __4) {SET_KC(21);SET_SHIFT;}
   return keycode;
 }
 
@@ -477,7 +574,7 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
 
 
     // Swap 'a' (keycode=0) and 'z' (keycode=6).
-    //printf("KEY: %i (%i)\n", keycode, current_layout);
+    // printf("KEY: %i (%i)\n", keycode, current_layout);
 //    printf("shift?: %i (%i)\n", flags & NX_SHIFTMASK);
 //    printf("opt?: %i (%i)\n", flags & NX_ALTERNATEMASK);
 //    printf("com?: %i (%i)\n", flags & NX_COMMANDMASK);
@@ -573,7 +670,7 @@ myCGEventCallback(CGEventTapProxy proxy, CGEventType type,
         if (current_layout == KEYBEST) {
           keycode = noModifierMapping(keycode, &event, &flags);
         } else if (current_layout == CAESAR) {
-          keycode = caesarMapping(keycode, &event, &flags);
+          keycode = caesarMapping(keycode, &event, &flags, type, &doReturn);
         }
       }
 
@@ -611,6 +708,8 @@ main(void)
     CFMachPortRef      eventTap;
     CGEventMask        eventMask;
     CFRunLoopSourceRef runLoopSource;
+
+    startThread();
 
     // Create an event tap. We are interested in key presses.
     eventMask = ((1 << kCGEventKeyDown) | (1 << kCGEventKeyUp));
