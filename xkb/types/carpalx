@@ -1,0 +1,18 @@
+xkb_types "qgmlwy" {
+    virtual_modifiers Meta,AltGr,Super,Hyper,Mod3,Mod5;
+//    type "CARPALX" {
+//        modifiers= Shift+Mod3+Mod5;
+//	map[None] = Level1;
+//        map[Shift] = Level2;
+//        map[Mod3]= Level3;
+//	map[Shift+Mod3]= Level4;
+//        map[Mod5]= Level5;
+//        map[Shift+Mod5]= Level6;
+//};
+type "SHIFT+HYPER" {
+    modifiers= Shift+Hyper;
+    map[Shift]= Level2;
+    map[Hyper]= Level3;
+    map[Shift+Hyper]= Level4;
+};
+}

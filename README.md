@@ -1,1 +1,3 @@
 # keybest
+
+setxkbmap keybest

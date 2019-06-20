@@ -1,0 +1,121 @@
+// carpalx layouts
+// see http://mkweb.bcgsc.ca/carpalx/
+
+// xkb keymap prepared by sven moritz hallberg <pesco@khjk.org>
+// see http://www.khjk.org/log/2011/jan/carpalx.html
+// copyright 2011, isc license
+
+
+// to use, copy to /usr/share/X11/xkb/symbols/carpalx and add the following
+// lines to /usr/share/X11/xkb/symbols.dir:
+//
+//     -dp----- a------- carpalx(qgmlwb)
+//     --p----- a------- carpalx(qgmlwy)
+//     --p----- a------- carpalx(qfmlwy)
+//     --p----- a------- carpalx(qwkrfy)
+//     --p----- a------- carpalx(qwyrfm)
+//     --p----- a------- carpalx(tnwmlc)
+//
+// then load with, e.g.
+//
+//     setxkbmap carpalx                            # defaults to QGMLWB
+//     setxkbmap -layout carpalx -variant qwkrfy    # to select other variants
+
+default
+partial alphanumeric_keys
+xkb_symbols "keybest" {
+
+    include "latin"
+    include "latin(nodeadkeys)"
+    include "level3"
+    include "level5"
+
+    name[Group1] = "KEYBEST";
+
+//    key <AD01> { [ ISO_Level3_Shift ] };
+// //    modifier_map Mod3 { Super_L };
+    // key <AD02> { [ISO_Level5_Shift ] };
+    // modifier_map Mod3 { ISO_Level5_Shift };
+    // modifier_map Mod4 { <DELE> }; // Hyper
+    // key <DELE>  { type="UNMODIFIED", [ Hyper_R ], repeat=no  };
+    // key <AC02> { type = "SHIFT+HYPER", [ b, 8, 
+    //                            9, 0 ] };
+
+//    key <AC03>  { type[group1]="EIGHT_LEVEL",
+//                  symbols[group1]=[         9,          2,       3,      4,
+//		                            5,          6,       7,      8] };
+    // key <AC03> { type[group1]="SHIFT+HYPER",
+    //             symbols[group1]=[ 1, 2, 3, 4, 5, 6, 7, 8] };
+
+
+    key <CAPS> { [ ISO_Level5_Shift ] };
+    // modifier_map Mod5 { ISO_Level3_Shift };
+
+    key <RTRN>  { [ ISO_Level3_Shift ] };
+    // modifier_map Mod3 { Super_L };
+
+// This does not work. Instead, invert codes LCTL=37 and DELE=119 in /usr/share/X11/xkb/keycodes/evdev
+//    key <DELE> {    [ Control_L ]   };
+
+    key <RTSH>  { type[group1]="EIGHT_LEVEL",
+                  symbols[group1]=[Return, Return, Return, Return, Return, Return, Return, Return] };
+    key <AB10>  { type[group1]="EIGHT_LEVEL", // /
+                  symbols[group1]=[BackSpace, BackSpace, BackSpace, BackSpace, BackSpace, BackSpace, BackSpace, BackSpace] };
+    key <SPCE>  {    [ Shift_L ]   };
+    key <BKSP>  { type[group1]="EIGHT_LEVEL", // /
+                  symbols[group1]=[space, space, space, space, space, space, space,space] };
+
+
+    key <AD01>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         q,          Q,           at,  Greek_OMEGA ]	};
+    key <AD02>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         g,          G,          eng,          ENG ]	};
+    key <AD03>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         m,          M,           mu,    masculine ]	};
+    key <AD04>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         l,          L,      lstroke,      Lstroke ]	};
+    key <AD05>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         w,          W,      lstroke,      Lstroke ]	};
+    key <AD06>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         y,          Y,    leftarrow,          yen ]	};
+    key <AD07>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         f,          F,    braceright, braceright, Home, Home  ]	};
+    key <AD08>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         u,          U,    parenright,      braceright, Up, Up ]	};
+    key <AD09>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         b,          B,    bracketright,  bracketright, End, End ] };
+    key <AD10>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[ apostrophe,apostrophe,apostrophe,apostrophe,apostrophe,apostrophe,apostrophe,apostrophe ]	};
+    key <AD11>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[ 1,    colon, dead_acute, dead_doubleacute ]	};
+    key <AD12>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[ 2,    colon, dead_acute, dead_doubleacute ]	};
+
+    key <AC01>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         d,          D,          eth,          ETH ]	};
+    key <AC02>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         s,          S,       ssharp,      section ]	};
+    key <AC03>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         t,          T,       tslash,       Tslash ]	};
+    key <AC04>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         n,          N ]	};
+    key <AC05>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         r,          R,    paragraph,   registered ]	};
+    key <AC06>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         i,          I,   rightarrow,     idotless ]	};
+    key <AC07>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         a,          A,           underscore, underscore, Left, Left ]	};
+    key <AC08>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         e,          E,     minus, minus, Down, Down ]	};
+    key <AC09>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         o,          O,     exclam, exclam, Right, Right ]	};
+    key <AC10>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         h,          H,      hstroke,      Hstroke ]	};
+    key <AC11>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[ quotedbl,quotedbl,quotedbl,quotedbl,quotedbl,quotedbl,quotedbl,quotedbl ]	};
+    key <AC12>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[ grave,grave,grave,grave,grave,grave,grave,grave ]	};
+
+    key <AB01>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         z,          Z, guillemotleft,        less ]	};
+    key <AB02>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         x,          X, guillemotright,    greater ]	};
+    key <AB03>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         c,          C,         cent,    copyright, c,c,c,c ]	};
+    key <AB04>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         v,          V, leftdoublequotemark, leftsinglequotemark ]	};
+    key <AB05>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         j,          J ]	};
+    key <AB06>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         k,          K,          kra,    ampersand ]	};
+    key <AB07>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         p,          P,        thorn,        THORN ]	};
+    key <AB08>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         period,          P,        thorn,        THORN ]	};
+    key <AB09>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[         comma,          P,        thorn,        THORN ]	};
+
+//    key <AA01>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,1,1,1,1,1,1,1]	};
+//    key <AA02>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   5,2,2,2,2,2,2,2 ]	};
+//    key <AA03>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   6,2,2,2,2,2,2,2 ]	};
+//    key <AA04>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA05>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA06>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA07>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA08>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA09>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA10>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA11>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA12>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA13>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+//    key <AA14>	{ type[group1]="EIGHT_LEVEL", symbols[group1]=[   4,2,2,2,2,2,2,2 ]	};
+
+};
+

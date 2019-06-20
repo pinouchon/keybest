@@ -1,0 +1,261 @@
+ 1114  cat /usr/share/X11/xkb/symbols
+ 1115  ls /usr/share/X11/xkb/symbols
+ 1117  ls /var/lib/xkb
+ 1118  cat /usr/share/X11/xkb/symbols/fr
+ 3374  cd /usr/share/X11/xkb
+ 3394  wget http://www.khjk.org/log/2011/jan/carpalx.xkb
+ 3397  wget http://www.khjk.org/log/2011/jan/carpalx.xkb
+ 3398  sudo wget http://www.khjk.org/log/2011/jan/carpalx.xkb
+ 3404  sudo mv carpalx.xkb carpalx
+ 3406  setxkbmap carpalx
+ 3408  setxkbmap carpalx
+ 3411  sudo emacs /usr/share/X11/xkb/rules/xorg.lst
+ 3412  sudo emacs /usr/share/X11/xkb/rules/xorg.xml
+ 3413  sudo emacs /usr/share/X11/xkb/rules/xorg.lst
+ 3414  sudo emacs /usr/share/X11/xkb/rules/xorg.xml
+ 3415  sudo emacs /usr/share/X11/xkb/rules/xorg.lst
+ 3416  sudo emacs /usr/share/X11/xkb/rules/xorg.xml
+ 3418  setxkbmap carpalx
+ 3437  cd /usr/share/X11/xkb
+ 3440  setxkbmap carpalx
+ 3441  setxkbmap carpalx -variant qgmlwy
+ 3478  setxkbmap carpalx -variant qgmlwy
+ 3484  setxkbmap carpalx -variant qgmlwy
+ 3486  setxkbmap carpalx -variant qgmlwy
+ 3494  setxkbmap carpalx -variant qgmlwy
+ 3495  cd /usr/share/X11/xkb
+ 3506  sudo rm /var/lib/xkb/*.xkm
+ 3507  sudo dpkg-reconfigure xkb-data
+ 3509  cd /usr/share/X11/xkb
+ 3512  sudo dpkg-reconfigure xkb-data
+ 3514  sudo dpkg-reconfigure xkb-data
+ 3516  sudo dpkg-reconfigure xkb-data
+ 3518  sudo dpkg-reconfigure xkb-data
+ 3521  sudo dpkg-reconfigure xkb-data
+ 3523  cd /usr/share/X11/xkb
+ 3604  cp /usr/share/X11/xkb/symbols/carpalx .
+ 3607  xkbcomp carpalx
+ 3608  xkbcomp carpalx $DISPLAY
+ 3609  xkbcomp
+ 3610  xkbcomp carpalx
+ 3612  xkbcomp carpalx
+ 3613  emacs test.xkb
+ 3614  xkbcomp test.xkb
+ 3615  emacs test.xkb
+ 3616  xkbcomp test.xkb
+ 3618  xkbcomp test.xkb
+ 3620  xkbcomp test.xkb
+ 3622  xkbcomp test.xkb
+ 3624  xkbcomp test.xkb
+ 3626  xkbcomp test.xkb
+ 3628  xkbcomp test.xkb
+ 3630  xkbcomp test.xkb
+ 3632  xkbcomp test.xkb
+ 3634  xkbcomp test.xkb
+ 3635  touch foo.xkb
+ 3636  xkbcomp foo.xkb
+ 3637  rm foo.xkb
+ 3639  cp test.xkb foo.xbk
+ 3640  mv foo.xbk foo.xkb
+ 3641  emacs foo.xkb
+ 3642  xkbcomp foo.xkb
+ 3644  xkbcomp test.xkb
+ 3646  xkbcomp test.xkb
+ 3648  xkbcomp test.xkb
+ 3650  xkbcomp test.xkb
+ 3652  xkbcomp test.xkb
+ 3654  xkbcomp test.xkb
+ 3656  xkbcomp test.xkb
+ 3658  xkbcomp test.xkb
+ 3660  xkbcomp test.xkb
+ 3662  xkbcomp test.xkb
+ 3664  xkbcomp test.xkb
+ 3666  xkbcomp test.xkb
+ 3668  xkbcomp test.xkb
+ 3670  xkbcomp test.xkb
+ 3672  xkbcomp test.xkb
+ 3674  xkbcomp test.xkb
+ 3676  xkbcomp test.xkb
+ 3678  xkbcomp test.xkb
+ 3680  xkbcomp test.xkb
+ 3682  xkbcomp test.xkb
+ 3684  xkbcomp test.xkb
+ 3689  rm foo.xkb
+ 3693  setxkbmap test.xkb
+ 3695  setxkbmap test.xkb $DISPLAY
+ 3697  setxkbmap tes
+ 3702  setxkbmap test.xkb
+ 3703  setxkbmap test.xkm
+ 3704  xkbcomp test.xkb
+ 3707  xkbcomp $DISPLAY test.xkb
+ 3710  xkbcomp -i 8 . $DISPLAY
+ 3711  xkbcomp -i 8 test.xkb $DISPLAY
+ 3712  emacs test.xkb
+ 3718  emacs test.xkb
+ 3720  less test.xkb~
+ 3721  mv test.xkb~ test.xkb
+ 3722  emacs test.xkb
+ 3723  xkbcomp test.xkb
+ 3725  xkbcomp test.xkb
+ 3727  xkbcomp test.xkb
+ 3729  xkbcomp test.xkb
+ 3731  sudo cp /usr/share/X11/xkb/symbols/carpalx carpalx2
+ 3732  sudo emacs /usr/share/X11/xkb/symbols/carpalx2
+ 3735  sudo cp /usr/share/X11/xkb/symbols/carpalx /usr/share/X11/xkb/symbols/carpalx2
+ 3736  sudo emacs /usr/share/X11/xkb/symbols/carpalx2
+ 3737  emacs test.xkb
+ 3739  sudo emacs /usr/share/X11/xkb/symbols/carpalx2
+ 3741  cat test.xkb
+ 3743  emacs /usr/share/X11/xkb/keycodes/evdev
+ 3767  cd /usr/share/X11/xkb
+ 3835  cd /usr/share/X11/xkb
+ 3845  sudo emacs /usr/share/X11/xkb/rules/base
+ 3846  sudo emacs /usr/share/X11/xkb/rules/base.xml
+ 3847  rm /var/lib/xkb/*.xkm
+ 3848  setxkbmap carpalx
+ 3852  setxkbmap carpalx
+ 3974  sudo emacs /usr/share/X11/xkb/types/level5
+ 3975  sudo emacs /usr/share/X11/xkb/symbols/carpalx2
+ 3976  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3977  sudo emacs /usr/share/X11/xkb/compat
+ 3978  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3979  sudo emacs /usr/share/X11/xkb/compat/carpalx
+ 3980  sudo emacs /usr/share/X11/xkb/types/carpalx
+ 3981  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3982  cat /usr/share/X11/xkb/types/carpalx
+ 3983  cat /usr/share/X11/xkb/compat/carpalx
+ 3985  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3986  sudo emacs /usr/share/X11/xkb/types/level5
+ 3987  sudo emacs /usr/share/X11/xkb/compat/carpalx
+ 3988  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3989  sudo emacs /usr/share/X11/xkb/compat/carpalx
+ 3990  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3991  sudo emacs /usr/share/X11/xkb/compat/carpalx
+ 3993  sudo emacs /usr/share/X11/xkb/types/carpalx
+ 3994  sudo emacs /usr/share/X11/xkb/types/level5
+ 3996  sudo emacs /usr/share/X11/xkb/compat/carpalx
+ 3997  sudo emacs /usr/share/X11/xkb/types/level5
+ 3998  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 3999  sudo emacs /usr/share/X11/xkb/types/level5
+ 4000  sudo emacs /usr/share/X11/xkb/types/basic
+ 4001  sudo emacs /usr/share/X11/xkb/types/level5
+ 4002  sudo emacs /usr/share/X11/xkb/compat/carpalx
+ 4003  sudo cp /usr/share/X11/xkb/symbols/carpalx /usr/share/X11/xkb/symbols/keybest
+ 4004  sudo cp /usr/share/X11/xkb/compat/carpalx /usr/share/X11/xkb/compat/keybest
+ 4005  sudo cp /usr/share/X11/xkb/types/carpalx /usr/share/X11/xkb/types/keybest 
+ 4006  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4007  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4008  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4009  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4010  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4011  sudo emacs /usr/share/X11/xkb/rules/evdev.xml
+ 4012  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4013  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4014  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4015  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4016  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4017  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4018  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 4019  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4020  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 4021  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4022  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4023  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4024  sudo cp /usr/share/X11/xkb/compat/carpalx /usr/share/X11/xkb/compat/keybest
+ 4025  sudo cp /usr/share/X11/xkb/types/carpalx /usr/share/X11/xkb/types/keybest 
+ 4026  sudo cp /usr/share/X11/xkb/symbols/carpalx /usr/share/X11/xkb/symbols/keybest
+ 4027  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4028  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4029  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4030  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4031  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4032  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4033  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 4034  sudo cp /usr/share/X11/xkb/symbols/carpalx /usr/share/X11/xkb/symbols/keybest
+ 4035  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4036  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 4037  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4038  sudo cp /usr/share/X11/xkb/symbols/carpalx /usr/share/X11/xkb/symbols/keybest
+ 4039  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4040  setxkbmap keybest
+ 4041  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4042  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4043  setxkbmap keybest
+ 4044  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4045  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4046  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4047  setxkbmap keybest
+ 4048  sudo emacs /usr/share/X11/xkb/rules/evdev.lst
+ 4049  sudo emacs /usr/share/X11/xkb/rules/evdev
+ 4051  ls  /usr/share/X11/xkb/rules/
+ 4052  sudo emacs /usr/share/X11/xkb/rules/base
+ 4053  sudo emacs /usr/share/X11/xkb/rules/evdev
+ 4054  setxkbmap keybest
+ 4055  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4056  setxkbmap keybest
+ 4057  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4058  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4059  setxkbmap keybest
+ 4060  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4061  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4062  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4063  setxkbmap keybest
+ 4064  setxkbmap carpalx
+ 4065  setxkbmap keybest
+ 4067  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4069  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4070  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4071  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4072  setxkbmap keybest
+ 4073  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4074  sudo emacs /usr/share/X11/xkb/compat/keybest
+ 4075  setxkbmap keybest
+ 4076  sudo emacs /usr/share/X11/xkb/types/keybest
+ 4077  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4078  setxkbmap keybest
+ 4079  sudo emacs /usr/share/X11/xkb/rules/evdev
+ 4080  sudo emacs /usr/share/X11/xkb/types/carpalx
+ 4081  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 4083  sudo emacs /usr/share/X11/xkb/types/level5
+ 4084  sudo emacs /usr/share/X11/xkb/compat/basic
+ 4085  sudo emacs /usr/share/X11/xkb/compat/level5
+ 4086  sudo emacs /usr/share/X11/xkb/compat/basic
+ 4087  sudo emacs /usr/share/X11/xkb/compat/complete
+ 4088  sudo emacs /usr/share/X11/xkb/symbols/latin
+ 4089  sudo emacs /usr/share/X11/xkb/symbols/pc
+ 4090  sudo emacs /usr/share/X11/xkb/symbols/level3
+ 4091  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 4092  sudo cp /usr/share/X11/xkb/symbols/carpalx /usr/share/X11/xkb/symbols/keybest
+ 4093  sudo rm /usr/share/X11/xkb/compat/keybest
+ 4094  sudo rm /usr/share/X11/xkb/types/keybest
+ 4095  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4096  setxkbmap keybest
+ 4097  sudo emacs /usr/share/X11/xkb/rules/evdev.lst
+ 4098  sudo emacs /usr/share/X11/xkb/rules/evdev.xml
+ 4099  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4100  setxkbmap keybest
+ 4101  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4103  setxkbmap keybest
+ 4106  setxkbmap keybest
+ 4107  setxkbmap keybest 
+ 4148  cd /usr/share/X11/xkb
+ 4149  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 4155  setxkbmap keybest 
+ 4157  setxkbmap keybest
+ 4170  sudo emacs /usr/share/X11/xkb/keycodes/evdev 
+ 7678  hgrep xkb
+ 7679  ls /usr/share/X11/xkb/symbols/carpalx
+ 7680  cat /usr/share/X11/xkb/symbols/carpalx
+ 7681  hgrep xkb
+ 7682  sudo emacs /usr/share/X11/xkb/rules/evdev.lst
+ 7683  sudo emacs /usr/share/X11/xkb/rules/evdev.xml
+ 7684  sudo emacs /usr/share/X11/xkb/symbols/keybest
+ 7685  df -h /usr/share/X11/xkb
+ 7686  sudo emacs /usr/share/X11/xkb/types/carpalx
+ 7687  /usr/share/X11/xkb/symbols/carpalx
+ 7688  sudo emacs /usr/share/X11/xkb/symbols/carpalx
+ 7695  mkdir xkb
+ 7696  hgrep xkb
+ 7698  cp /usr/share/X11/xkb/symbols/keybest symbols
+ 7700  cp /usr/share/X11/xkb/types/carpalx types
+ 7701  ls /usr/share/X11/xkb/compat/keybest
